@@ -126,4 +126,8 @@ var eggshells = new Trash("http://www.stickpng.com/assets/thumbs/5c570e158c21c90
 
 
 let startButton = getElementById("start");
-startButton.addEventListener("click", function(){window.location.href = "gd.html"})
+startButton.addEventListener("click", startGame());
+
+function startGame() {
+    window.location = "gamepg.html";
+}
