@@ -84,22 +84,22 @@ let paper = [
     paperAirplane,
 ]
 
-var bigBox = new Trash();
-var smallBox = new Trash();
-var crumpledPaper = new Trash();
-var flatPaper = new Trash();
-var tissue = new Trash();
-var cardboardTube = new Trash();
-var envelope = new Trash();
-var card = new Trash();
-var paperAirplane = new Trash();
+var bigBox = new Trash("https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/VISSC280_shipping_carton_280_x_255_x_215mm_15_pack.jpg");
+var smallBox = new Trash("https://ae01.alicdn.com/kf/HTB1PtLMIpXXXXb8XpXXq6xXFXXXA/Carton-Box-Paper-Boxes-Neoprene-Swimwear-Bikini-Clothing-Packing-Boxes-Anti-Wrinkle-Hard-Brown-color.jpg_640x640.jpg");
+var crumpledPaper = new Trash("http://www.stickpng.com/assets/images/5c434c10e39d5d01c21da943.png");
+var flatPaper = new Trash("https://cdn1.bigcommerce.com/server4300/c7561/products/73/images/1735/paper_sheet__41145.1424302341.380.380.jpg?c=2");
+var tissue = new Trash("https://img1.exportersindia.com/product_images/bc-full/dir_5/126172/tissue-paper-1521700403-76103.jpeg");
+var cardboardTube = new Trash("https://housewifehowtos.com/wp-content/uploads/2012/05/toilet-paper-cardboard-tube.jpg");
+var envelope = new Trash("https://s3.amazonaws.com/static.lcipaper.com/img/prod/AGD7E-OUTmed.png");
+var card = new Trash("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/LeibnizBrief1.jpg/200px-LeibnizBrief1.jpg");
+var paperAirplane = new Trash("http://activehistory.ca/wp-content/uploads/2018/05/1024px-Paperairplane-1024x573.png");
 
 let compost = [
     bananaPeel,
     coffeeFilter,
     teaBag,
     appleCore,
-    avacadoRind,
+    avocadoRind,
     orangePeel,
     leaf,
     stick,
@@ -107,14 +107,14 @@ let compost = [
     eggShells,
 ]
 
-var bananaPeel = new Trash();
-var coffeeFilter = new Trash();
-var teaBag = new Trash();
-var appleCore = new Trash():
-var avacadoRind = new Trash();
-var orangePeel = new Trash();
-var leaf = new Trash();
-var stick = new Trash();
-var dirt = new Trash();
-var eggshells = new Trash();
+var bananaPeel = new Trash("https://www.thedailymeal.com/sites/default/files/story/2016/bananapeel.JPG");
+var coffeeFilter = new Trash("https://www.sciencedaily.com/images/2015/05/150513112035_1_900x600.jpg");
+var teaBag = new Trash("https://banner2.kisspng.com/20180301/ywe/kisspng-white-tea-tea-bag-white-bag-tea-bag-5a98d82168ad44.8435095215199662414288.jpg");
+var appleCore = new Trash("https://progressive.org/downloads/5300/download/rotten%20apple%20.jpg.jpe?cb=c4a7db57c9e999ed5e304327da730ae3"):
+var avocadoRind = new Trash("https://daily.jstor.org/wp-content/uploads/2017/05/avocado_1050x700.jpg");
+var orangePeel = new Trash("http://assets.stickpng.com/thumbs/5a68f916988f2a795ef76ce3.png");
+var leaf = new Trash("https://www.ctfresh.com.sg/wp-content/uploads/2017/11/177130309.jpg");
+var stick = new Trash("http://www.stickpng.com/assets/images/580b585b2edbce24c47b26c7.png");
+var dirt = new Trash("https://static.canadiancattlemen.ca/wp-content/uploads/2015/02/153935374.jpg");
+var eggshells = new Trash("http://www.stickpng.com/assets/thumbs/5c570e158c21c9029a0f48c1.png");
 
