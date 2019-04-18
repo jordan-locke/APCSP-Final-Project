@@ -38,9 +38,14 @@ class Game {
 
 
 
-class Player {}
+class Player {
+    constructor(_name, _highscore) {
+        this.name = _name;
+        this.highScore = _highscore;
+    }
+}
 
-
+var Player1 = new Player(name, 0)
 
 
 
@@ -118,3 +123,7 @@ var stick = new Trash();
 var dirt = new Trash();
 var eggshells = new Trash();
 
+
+
+let startButton = getElementById("start");
+startButton.addEventListener("click", function(){window.location.href = "gd.html"})
