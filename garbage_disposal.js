@@ -30,6 +30,12 @@ class Game {
     logTimer() {
         document.getElementById("scoreboard");
     }
+
+    playGame() {
+        pickRandomTrash();
+        console.log(pickRandomTrash());
+        let currentTrash = document.createElement("img");
+    }
 }
 
 
@@ -43,9 +49,11 @@ class Player {
         this.name = _name;
         this.highScore = _highscore;
     }
+    createPlayer() {
+
+    }
 }
 
-var Player1 = new Player(name, 0)
 
 
 
@@ -125,9 +133,11 @@ var eggshells = new Trash("http://www.stickpng.com/assets/thumbs/5c570e158c21c90
 
 
 
-let startButton = getElementById("start");
+/*let startButton = getElementById("start");
+console.log(startButton.id);
 startButton.addEventListener("click", startGame());
 
 function startGame() {
-    window.location = "gamepg.html";
-}
+    console.log("in startGame");
+    window.location = "https://en.wikipedia.org/wiki/Mouse";
+}*/
