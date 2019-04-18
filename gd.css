@@ -13,6 +13,14 @@
 
 #timer {
     background-color: coral;
+    width: 400px;
+    height: 100px;
     border-radius: 10%;
     border-style: double;
 }
+
+#trash {
+    width: 150px;
+    height: 150px;
+}
+
