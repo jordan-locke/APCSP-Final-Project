@@ -43,19 +43,32 @@
     border-style: double;
 }
 
-#paper {
+#paperBin {
+    background-color: burlywood;
     width: 150px;
-    height: 150px;
+    height: 200px;
+    position: absolute;
+    top: 500px;
+    left: 300px;
 }
 
-#plastic {
+#plasticBin {
+    background-color: dodgerblue;
     width: 150px;
-    height: 150px;
+    height: 200px;
+    position: absolute;
+    top: 500px;
+    right: 300px;
 }
 
-#compost {
+#compostBin {
+    background-color: darkseagreen;
     width: 150px;
-    height: 150px;
+    height: 200px;
+    position: absolute;
+    top: 400px;
+    right: 0px;
+    left: 0px;
 }
 
 #start-button {
