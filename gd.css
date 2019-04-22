@@ -28,8 +28,9 @@
     position: absolute;
     bottom: 50px;
     right: 50px;
-    border-radius: 10%;
-    border-style: double;
+    /*border-radius: 10%;*/
+    border-color: black;
+    /*border-style: double;*/
 }
 
 #timer {
@@ -39,34 +40,50 @@
     position: absolute;
     top: 30px;
     right: 1000px;
-    border-radius: 20%;
-    border-style: double;
+    /*border-radius: 20%;*/
+    border-color: black;
+    /*border-style: double;*/
 }
 
 #paperBin {
     background-color: burlywood;
     width: 150px;
+<<<<<<< HEAD
+    height: 150px;
+    background-color:brown;
+=======
     height: 200px;
     position: absolute;
     top: 500px;
     left: 300px;
+>>>>>>> origin/master
 }
 
 #plasticBin {
     background-color: dodgerblue;
     width: 150px;
+<<<<<<< HEAD
+    height: 150px;
+    background-color:aqua;
+=======
     height: 200px;
     position: absolute;
     top: 500px;
     right: 300px;
+>>>>>>> origin/master
 }
 
 #compostBin {
     background-color: darkseagreen;
     width: 150px;
+<<<<<<< HEAD
+    height: 150px;
+    background-color:darkgreen;
+=======
     height: 200px;
     position: absolute;
     top: 400px;
+<<<<<<< HEAD
     right: 650px;
 }
 
@@ -74,6 +91,11 @@
     text-align: center;
     color: white;
     border-style: double
+=======
+    right: 0px;
+    left: 0px;
+>>>>>>> origin/master
+>>>>>>> origin/master
 }
 
 #start-button {
