@@ -67,12 +67,21 @@
     height: 200px;
     position: absolute;
     top: 400px;
-    right: 0px;
-    left: 0px;
+    right: 650px;
+}
+
+.name {
+    text-align: center;
+    color: white;
+    border-style: double
 }
 
 #start-button {
     color:black;
     text-decoration: none;
     cursor:default;
+}
+
+.container {
+    justify-content: space-around;
 }
