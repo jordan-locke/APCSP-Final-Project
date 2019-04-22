@@ -28,8 +28,9 @@
     position: absolute;
     bottom: 50px;
     right: 50px;
-    border-radius: 10%;
-    border-style: double;
+    /*border-radius: 10%;*/
+    border-color: black;
+    /*border-style: double;*/
 }
 
 #timer {
@@ -39,23 +40,27 @@
     position: absolute;
     top: 30px;
     right: 1000px;
-    border-radius: 20%;
-    border-style: double;
+    /*border-radius: 20%;*/
+    border-color: black;
+    /*border-style: double;*/
 }
 
 #paper {
     width: 150px;
     height: 150px;
+    background-color:brown;
 }
 
 #plastic {
     width: 150px;
     height: 150px;
+    background-color:aqua;
 }
 
 #compost {
     width: 150px;
     height: 150px;
+    background-color:darkgreen;
 }
 
 #start-button {
