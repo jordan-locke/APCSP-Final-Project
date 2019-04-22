@@ -1,6 +1,24 @@
-@keyframes sorted {
-    from {opacity: 1}
-    to {opacity: 0}
+@keyframes correct {
+    from {width: 150px;}
+    to {width: 0px;}
+    from {height: 150px;}
+    to {height: 0px}
+    to {color: aquamarine;}
+}
+
+@keyframes wrong {
+    from {width: 150px;}
+    to {width: 300px;}
+    from {height: 150px;}
+    to {height: 300px;}
+    to {color: crimson}
+}
+
+@keyframes timer {
+    from {width: 400;}
+    to {width: 395;}
+    from {height: 100px;}
+    to {height: 95;}
 }
 
 #scoreboard {
@@ -25,7 +43,17 @@
     border-style: double;
 }
 
-#trash {
+#paper {
+    width: 150px;
+    height: 150px;
+}
+
+#plastic {
+    width: 150px;
+    height: 150px;
+}
+
+#compost {
     width: 150px;
     height: 150px;
 }

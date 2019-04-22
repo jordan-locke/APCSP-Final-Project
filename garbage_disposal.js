@@ -24,10 +24,24 @@ class Game {
     }
 
     addToScore() {
-        this.score = this.score + 1;
+        if (player.choice = randomNumber) {
+            this.score = this.score + 1;
+            //timer resets (this.timer = this.timer)?
+        } else {
+            //end game
+        }
+
     }
 
     logTimer() {
+        if (this.score >= 99) {
+            this.timer = 1;
+        } else if (this.score % 10 == 0){
+            this.timer = this.timer - 1;
+        } else {
+            //timer resets (this.timer = this.timer)?
+        }
+
         document.getElementById("scoreboard");
     }
 
@@ -45,9 +59,10 @@ class Game {
 
 
 class Player {
-    constructor(_name, _highscore) {
+    constructor(_name, _highscore, _choice) {
         this.name = _name;
         this.highScore = _highscore;
+        this.choice = _choice;
     }
     createPlayer() {
 
