@@ -136,6 +136,7 @@ var stick = new Trash("http://www.stickpng.com/assets/images/580b585b2edbce24c47
 var dirt = new Trash("https://static.canadiancattlemen.ca/wp-content/uploads/2015/02/153935374.jpg");
 var eggshells = new Trash("http://www.stickpng.com/assets/thumbs/5c570e158c21c9029a0f48c1.png");
 
+/*Create button; Left arrow for Paper, Up arrow for Compost, Right arrow for Plastic. Link buttons to the trash cans and either the "correct" or "wrong" animations. */
 
 let compost = [
     bananaPeel,
@@ -149,7 +150,6 @@ let compost = [
     dirt,
     eggShells,
 ]
-
 
 /*let startButton = getElementById("start");
 console.log(startButton.id);

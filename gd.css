@@ -45,22 +45,47 @@
     /*border-style: double;*/
 }
 
-#paper {
+#paperBin {
+    background-color: burlywood;
     width: 150px;
+<<<<<<< HEAD
     height: 150px;
     background-color:brown;
+=======
+    height: 200px;
+    position: absolute;
+    top: 500px;
+    left: 300px;
+>>>>>>> origin/master
 }
 
-#plastic {
+#plasticBin {
+    background-color: dodgerblue;
     width: 150px;
+<<<<<<< HEAD
     height: 150px;
     background-color:aqua;
+=======
+    height: 200px;
+    position: absolute;
+    top: 500px;
+    right: 300px;
+>>>>>>> origin/master
 }
 
-#compost {
+#compostBin {
+    background-color: darkseagreen;
     width: 150px;
+<<<<<<< HEAD
     height: 150px;
     background-color:darkgreen;
+=======
+    height: 200px;
+    position: absolute;
+    top: 400px;
+    right: 0px;
+    left: 0px;
+>>>>>>> origin/master
 }
 
 #start-button {
