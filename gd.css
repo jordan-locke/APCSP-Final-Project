@@ -30,7 +30,7 @@
     right: 50px;
     /*border-radius: 10%;*/
     border-color: black;
-    /*border-style: double;*/
+    border-style: double;*/
 }
 
 #timer {
@@ -42,7 +42,7 @@
     right: 1000px;
     /*border-radius: 20%;*/
     border-color: black;
-    /*border-style: double;*/
+    border-style: double;*/
 }
 
 #paperBin {
@@ -76,8 +76,6 @@
     text-align: center;
     color: white;
     border-style: double;
-    right: 0px;
-    left: 0px;
 }
 
 #start-button {
