@@ -9,6 +9,12 @@ class Game {
         this.currentTrash = null;
         this.playerChoice = null;
         window.addEventListener("keydown", playerChoice);
+        let startButton = document.getElementById("start-pop-up");
+        startButton.addEventListener("click", startGame());
+    }
+
+    startGame(event) {
+        startButton.opacity = 0;
     }
 
     pickRandomTrash() {
@@ -32,8 +38,6 @@ class Game {
         let trash = document.getElementById("current-trash");
         trash.appendChild(this.currentTrash);
     }
-
-
 
     playerChoice() {
         if (event.keyCode === 37) {
