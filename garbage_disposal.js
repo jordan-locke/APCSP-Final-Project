@@ -3,40 +3,46 @@ class Game {
         this.player = new Player();
         this.score = 0;
         this.timer = 10;
-        this.plastic1 = [];
-        this.compost2 = [];
-        this.paper3 = [];
         this.currentTrash = null;
         this.playerChoice = null;
-        window.addEventListener("keydown", playerChoice);
-        let startButton = document.getElementById("start-pop-up");
-        startButton.addEventListener("click", startGame());
+
+        window.addEventListener("keydown", this.playerChoice);
+
+        this.startButton = document.getElementById("start-button");
+        this.startButton.addEventListener("click", this.startGame());
+        this.startButton.addEventListener('click', this.pickRandomTrash())
+
     }
 
-    startGame(event) {
-        startButton.opacity = 0;
+    startGame() {
+        this.startButton.opacity = 0;
     }
 
     pickRandomTrash() {
         let randomNumber = Math.ceil(Math.random()*3);
         if (randomNumber == 1) {
-            let randomPlastic = Math.floor(Math.random()*this.plastic1.length);
-            this.currentTrash = this.plastic1[randomPlastic];
+            let randomPlastic = Math.floor(Math.random()*plastic1.length);
+            this.currentTrash = plastic1[randomPlastic];
+            console.log("in plastic");
             console.log(this.currentTrash);
         } else if (randomNumber == 2) {
-            let randomCompost = Math.floor(Math.random()*this.compost2.length);
-            this.currentTrash = this.compost2[randomCompost];
+            let randomCompost = Math.floor(Math.random()*compost2.length);
+            this.currentTrash = compost2[randomCompost];
+            console.log("in compost");
             console.log(this.currentTrash);
         } else if (randomNumber = 3) {
-            let randomPaper = Math.floor(Math.random()*this.paper3.length);
-            this.currentTrash = this.paper3[randomPaper];
+            let randomPaper = Math.floor(Math.random()*paper3.length);
+            this.currentTrash = paper3[randomPaper];
+            console.log("in paper");
             console.log(this.currentTrash);
         }
+
+        this.displayTrashImage();
     }
 
-    postTrashImage() {
-        let trash = document.getElementById("current-trash");
-        trash.appendChild(this.currentTrash);
+    displayTrashImage() {
+        let trashImage = document.getElementById("current-trash");
+        trashImage.src = this.currentTrash.photo;
     }
 
     playerChoice() {
@@ -82,6 +88,7 @@ class Game {
             //timer resets (this.timer = this.timer)?
         }
     }
+}
 
 
 
@@ -92,8 +99,9 @@ class Player {
         this.highScore = _highscore;
         this.choice = _choice;
     }
-   playerName() {
-       let name =
+
+    playerName() {
+       // TODO
    }
 }
 
@@ -104,10 +112,6 @@ class Trash {
     constructor(_photo, _type) {
         this.photo = _photo;
         this.type = _type;
-    }
-
-    defineImage() {
-        let object.src = this.photo;
     }
 }
 
@@ -121,7 +125,7 @@ var juiceJug = new Trash("http://ecx.images-amazon.com/images/I/310tRm6gYsL.jpg"
 var container = new Trash("http://www.castawayfoodpackaging.com.au/wp-content/uploads/CA-CM650_WEB_A.png", 1);
 var plasticTube = new Trash("https://cdn.shopify.com/s/files/1/2612/8356/products/plastic-tubes-for-vape-cartridges-12mm-x-85mm-packaging-container-white-4011282104402.jpg?v=1547475054", 1);
 
-let plastic = [
+let plastic1 = [
     waterBottle,
     cup,
     packaging,
@@ -143,7 +147,7 @@ var envelope = new Trash("https://s3.amazonaws.com/static.lcipaper.com/img/prod/
 var card = new Trash("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/LeibnizBrief1.jpg/200px-LeibnizBrief1.jpg", 3);
 var paperAirplane = new Trash("http://activehistory.ca/wp-content/uploads/2018/05/1024px-Paperairplane-1024x573.png", 3);
 
-let paper = [
+let paper3 = [
     bigBox,
     smallBox,
     crumpledPaper,
@@ -159,15 +163,15 @@ let paper = [
 var bananaPeel = new Trash("https://www.thedailymeal.com/sites/default/files/story/2016/bananapeel.JPG", 2);
 var coffeeFilter = new Trash("https://www.sciencedaily.com/images/2015/05/150513112035_1_900x600.jpg", 2);
 var teaBag = new Trash("https://banner2.kisspng.com/20180301/ywe/kisspng-white-tea-tea-bag-white-bag-tea-bag-5a98d82168ad44.8435095215199662414288.jpg", 2);
-var appleCore = new Trash("https://progressive.org/downloads/5300/download/rotten%20apple%20.jpg.jpe?cb=c4a7db57c9e999ed5e304327da730ae3", 2):
+var appleCore = new Trash("https://progressive.org/downloads/5300/download/rotten%20apple%20.jpg.jpe?cb=c4a7db57c9e999ed5e304327da730ae3", 2);
 var avocadoRind = new Trash("https://daily.jstor.org/wp-content/uploads/2017/05/avocado_1050x700.jpg", 2);
 var orangePeel = new Trash("http://assets.stickpng.com/thumbs/5a68f916988f2a795ef76ce3.png", 2);
 var leaf = new Trash("https://www.ctfresh.com.sg/wp-content/uploads/2017/11/177130309.jpg", 2);
 var stick = new Trash("http://www.stickpng.com/assets/images/580b585b2edbce24c47b26c7.png", 2);
 var dirt = new Trash("https://static.canadiancattlemen.ca/wp-content/uploads/2015/02/153935374.jpg", 2);
-var eggshells = new Trash("http://www.stickpng.com/assets/thumbs/5c570e158c21c9029a0f48c1.png", 2);
+var eggShells = new Trash("http://www.stickpng.com/assets/thumbs/5c570e158c21c9029a0f48c1.png", 2);
 
-let compost = [
+let compost2 = [
     bananaPeel,
     coffeeFilter,
     teaBag,
@@ -180,15 +184,4 @@ let compost = [
     eggShells,
 ]
 
-/*let startButton = getElementById("start");
-console.log(startButton.id);
-startButton.addEventListener("click", startGame());
-
-function startGame() {
-    console.log("in startGame");
-    window.location = "https://en.wikipedia.org/wiki/Mouse";
-}*/
-
 let game = new Game();
-
-button.addEventListener('click', game.pickRandomTrash())
