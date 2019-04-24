@@ -9,21 +9,25 @@
 
   <body>
       <div id="game" class="container">
-        <div id="timer"          animation-iteration-count: 1000000;
-          animation-duration: 1s;> </div>
-        <div id="paperBin" class="name" class>
+       <div class="row">
+        <div id="timer" class="col" animation-iteration-count: 1000000;
+          animation-duration: 1s;>
+        </div>
+       </div>
+    <div class="row">
+        <div id="paperBin" class="col">
           <div class="name">PAPER</div>
-      </div>
-      <div id="compostBin" class="name">
+        </div>
+        <div id="compostBin" class="col">
           <div class="name">COMPOST</div>
-      </div>
-      <div id="plasticBin" class="name">
+        </div>
+        <div id="plasticBin" class="col">
           <div class="name">PLASTIC</div>
-      </div>
-      <div id="current-trash"></div>
-      <div id="scoreboard">SCORE</div>
+        </div>
+    </div>
+        <div id="current-trash"></div>
+        <div id="scoreboard" class="name">SCORE</div>
       </div>
     <script type="text/javascript" src="garbage_disposal.js"></script>
     </body>
 </html>
-

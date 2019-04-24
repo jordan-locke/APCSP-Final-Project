@@ -49,27 +49,18 @@
     background-color: burlywood;
     width: 150px;
     height: 200px;
-    position: absolute;
-    top: 500px;
-    left: 300px;
 }
 
 #plasticBin {
     background-color: dodgerblue;
     width: 150px;
     height: 200px;
-    position: absolute;
-    top: 500px;
-    right: 300px;
 }
 
 #compostBin {
     background-color: darkseagreen;
     width: 150px;
     height: 200px;
-    position: absolute;
-    top: 400px;
-    right: 650px;
 }
 
 .name {
@@ -85,5 +76,9 @@
 }
 
 .container {
-    justify-content: space-around;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
 }
+
+
