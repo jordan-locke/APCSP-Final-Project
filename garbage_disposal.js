@@ -10,12 +10,12 @@ class Game {
 
         this.startButton = document.getElementById("start-button");
         this.startButton.addEventListener("click", this.startGame());
-        this.startButton.addEventListener('click', this.pickRandomTrash())
 
     }
 
     startGame() {
         this.startButton.opacity = 0;
+        this.pickRandomTrash();
     }
 
     pickRandomTrash() {
@@ -136,30 +136,6 @@ let plastic1 = [
     plasticTube
 ]
 
-
-var bigBox = new Trash("https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/VISSC280_shipping_carton_280_x_255_x_215mm_15_pack.jpg", 3);
-var smallBox = new Trash("https://ae01.alicdn.com/kf/HTB1PtLMIpXXXXb8XpXXq6xXFXXXA/Carton-Box-Paper-Boxes-Neoprene-Swimwear-Bikini-Clothing-Packing-Boxes-Anti-Wrinkle-Hard-Brown-color.jpg_640x640.jpg", 3);
-var crumpledPaper = new Trash("http://www.stickpng.com/assets/images/5c434c10e39d5d01c21da943.png", 3);
-var flatPaper = new Trash("https://cdn1.bigcommerce.com/server4300/c7561/products/73/images/1735/paper_sheet__41145.1424302341.380.380.jpg?c=2", 3);
-var tissue = new Trash("https://img1.exportersindia.com/product_images/bc-full/dir_5/126172/tissue-paper-1521700403-76103.jpeg", 3);
-var cardboardTube = new Trash("https://housewifehowtos.com/wp-content/uploads/2012/05/toilet-paper-cardboard-tube.jpg", 3);
-var envelope = new Trash("https://s3.amazonaws.com/static.lcipaper.com/img/prod/AGD7E-OUTmed.png", 3);
-var card = new Trash("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/LeibnizBrief1.jpg/200px-LeibnizBrief1.jpg", 3);
-var paperAirplane = new Trash("http://activehistory.ca/wp-content/uploads/2018/05/1024px-Paperairplane-1024x573.png", 3);
-
-let paper3 = [
-    bigBox,
-    smallBox,
-    crumpledPaper,
-    flatPaper,
-    tissue,
-    cardboardTube,
-    envelope,
-    card,
-    paperAirplane,
-]
-
-
 var bananaPeel = new Trash("https://www.thedailymeal.com/sites/default/files/story/2016/bananapeel.JPG", 2);
 var coffeeFilter = new Trash("https://www.sciencedaily.com/images/2015/05/150513112035_1_900x600.jpg", 2);
 var teaBag = new Trash("https://banner2.kisspng.com/20180301/ywe/kisspng-white-tea-tea-bag-white-bag-tea-bag-5a98d82168ad44.8435095215199662414288.jpg", 2);
@@ -182,6 +158,28 @@ let compost2 = [
     stick,
     dirt,
     eggShells,
+]
+
+var bigBox = new Trash("https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/VISSC280_shipping_carton_280_x_255_x_215mm_15_pack.jpg", 3);
+var smallBox = new Trash("https://ae01.alicdn.com/kf/HTB1PtLMIpXXXXb8XpXXq6xXFXXXA/Carton-Box-Paper-Boxes-Neoprene-Swimwear-Bikini-Clothing-Packing-Boxes-Anti-Wrinkle-Hard-Brown-color.jpg_640x640.jpg", 3);
+var crumpledPaper = new Trash("http://www.stickpng.com/assets/images/5c434c10e39d5d01c21da943.png", 3);
+var flatPaper = new Trash("https://cdn1.bigcommerce.com/server4300/c7561/products/73/images/1735/paper_sheet__41145.1424302341.380.380.jpg?c=2", 3);
+var tissue = new Trash("https://img1.exportersindia.com/product_images/bc-full/dir_5/126172/tissue-paper-1521700403-76103.jpeg", 3);
+var cardboardTube = new Trash("https://housewifehowtos.com/wp-content/uploads/2012/05/toilet-paper-cardboard-tube.jpg", 3);
+var envelope = new Trash("https://s3.amazonaws.com/static.lcipaper.com/img/prod/AGD7E-OUTmed.png", 3);
+var card = new Trash("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/LeibnizBrief1.jpg/200px-LeibnizBrief1.jpg", 3);
+var paperAirplane = new Trash("http://activehistory.ca/wp-content/uploads/2018/05/1024px-Paperairplane-1024x573.png", 3);
+
+let paper3 = [
+    bigBox,
+    smallBox,
+    crumpledPaper,
+    flatPaper,
+    tissue,
+    cardboardTube,
+    envelope,
+    card,
+    paperAirplane,
 ]
 
 let game = new Game();
