@@ -14,8 +14,8 @@ class Game {
     }
 
     startGame() {
-        this.startButton.opacity = 0;
         this.pickRandomTrash();
+        this.startButton.opacity = 0;
     }
 
     pickRandomTrash() {
