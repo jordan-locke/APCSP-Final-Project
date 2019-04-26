@@ -25,9 +25,6 @@
     background-color: darkcyan;
     width: 200px;
     height:100px;
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
     /*border-radius: 10%;*/
     border-color: black;
     border-style: double;*/
@@ -37,9 +34,6 @@
     background-color: coral;
     width: 400px;
     height: 100px;
-    position: absolute;
-    top: 30px;
-    right: 1000px;
     /*border-radius: 20%;*/
     border-color: black;
     border-style: double;*/
@@ -81,4 +75,16 @@
    justify-content: space-around;
 }
 
+.whole {
+    align-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.score {
+    display: flex;
+    justify-content: flex-end;
+}
 
