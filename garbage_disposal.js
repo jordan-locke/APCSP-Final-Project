@@ -44,8 +44,9 @@ class Game {
     }
 
     playerChoice() {
+        console.log("in playerChoice");
         if (event.keyCode === 37) {
-            //paper
+            //PAPER
             this.playerChoice = 3;
         } else if (event.keyCode === 38) {
             //compost
@@ -188,4 +189,7 @@ startButton.addEventListener("click", () => {
     game.startGame();
 });
 
-window.addEventListener("keydown", game.playerChoice);
+let bins = document.getElementById("bin-container");
+bins.addEventListener("keydown", () => {
+    game.playerChoice();
+});
