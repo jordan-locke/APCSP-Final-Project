@@ -5,16 +5,11 @@ class Game {
         this.timer = 10;
         this.currentTrash = null;
         this.playerChoice = null;
-
-        window.addEventListener("keydown", this.playerChoice);
-
-        this.startButton = document.getElementById("start-button");
-        this.startButton.addEventListener("click", this.startGame());
-
     }
 
     startGame() {
-        this.startButton.opacity = 0;
+        console.log("in startGame");
+        startButton.opacity = 0;
         this.pickRandomTrash();
     }
 
@@ -89,8 +84,6 @@ class Game {
         }
     }
 }
-
-
 
 
 class Player {
@@ -182,4 +175,14 @@ let paper3 = [
     paperAirplane,
 ]
 
+
+
 let game = new Game();
+
+let startButton = document.getElementById("start-button");
+
+startButton.addEventListener("click", () => {
+    game.startGame();
+});
+
+window.addEventListener("keydown", game.playerChoice);
