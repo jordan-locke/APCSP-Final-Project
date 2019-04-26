@@ -36,8 +36,11 @@ class Game {
     }
 
     displayTrashImage() {
+        console.log("in displayImage");
         let trashImage = document.getElementById("current-trash");
+        console.log(trashImage.src);
         trashImage.src = this.currentTrash.photo;
+        console.log(trashImage.src);
     }
 
     playerChoice() {

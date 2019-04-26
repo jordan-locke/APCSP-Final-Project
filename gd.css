@@ -21,6 +21,10 @@
     to {height: 95;}
 }
 
+#current-trash {
+    border: solid;
+}
+
 #scoreboard {
     background-color: darkcyan;
     width: 200px;
