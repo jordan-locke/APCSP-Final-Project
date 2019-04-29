@@ -10,8 +10,12 @@ class Game {
 
     startGame() {
         console.log("in startGame");
-        startButton.opacity = 0;
-        this.pickRandomTrash();
+        if (startButton.style.opacity == "0") {
+            console.log(this.currentTrash);
+        } else {
+            startButton.style.opacity = "0";
+            this.pickRandomTrash();
+        }
     }
 
     playerChoice(event) {
@@ -29,15 +33,6 @@ class Game {
         }
         console.log(event.key);
     }
-
-/*class StartButton {
-    constructor(_opacity, _id) {
-        this.opacity = _opacity;
-        this.element = document.getElementById(_id);
-    }
- }
- */
-
 
     pickRandomTrash() {
         let randomNumber = Math.ceil(Math.random()*3);
@@ -78,6 +73,15 @@ class Game {
         return false;
     }
 }
+
+/*class StartButton {
+    constructor(_opacity, _id) {
+        this.opacity = _opacity;
+        this.element = document.createElement(_id);
+    }
+ }*/
+
+
 
 //document.getElementById("current-trash")
 
@@ -215,9 +219,8 @@ startButton.addEventListener("click", () => {
     game.startGame();
 });
 
-//window.addEventListener("keydown", game.playerChoice());
+window.addEventListener("keydown", (e) => {
+    console.log("in playerChoice");
+});
 
 let bins = document.getElementById("bin-container");
-window.addEventListener("keydown", () => {
-    game.playerChoice(event);
-});
