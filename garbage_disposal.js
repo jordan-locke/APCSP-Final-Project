@@ -2,9 +2,10 @@ class Game {
     constructor() {
         this.player = new Player();
         this.score = 0;
-        this.timer = 10;
+        this.logTimer = 10;
         this.currentTrash = null;
         this.playerChoice = null;
+        this.addPopUp = null;
     }
 
     startGame() {
@@ -12,6 +13,15 @@ class Game {
         startButton.opacity = 0;
         this.pickRandomTrash();
     }
+
+/*class StartButton {
+    constructor(_opacity, _id) {
+        this.opacity = _opacity;
+        this.element = document.getElementById(_id);
+    }
+ }
+ */
+
 
     pickRandomTrash() {
         let randomNumber = Math.ceil(Math.random()*3);
@@ -43,26 +53,41 @@ class Game {
         console.log(trashImage.src);
     }
 
-    playerChoice() {
+
+    playerChoice(event) {
         console.log("in playerChoice");
-        if (event.keyCode === 37) {
+        var key = event.keyCode;
+        if (key == 37) {
             //PAPER
-            this.playerChoice = 3;
-        } else if (event.keyCode === 38) {
+            this.playerChoice = paper3;
+        } else if (key == 38) {
             //compost
-            this.playerChoice = 2;
-        } else if (event.keyCode === 39) {
+            this.playerChoice = compost2;
+        } else if (key == 39) {
             //plastic
-            this.playerChoice = 1;
+            this.playerChoice = plastic1;
         }
+        console.log(event.keyCode);
     }
 
+    correctAnswer() {
+        if (this.playerChoice = this.displayTrashImage ){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+//document.getElementById("current-trash")
+
+
     addToScore() {
-        if (this.playerChoice = Trash.type) {
+        if (correctAnswer == true) {
             this.score = this.score + 1;
-            logTimer();
+            this.pickRandomTrash;
+            game.logTimer();
         } else {
-            //end game
+            this.addPopUp();
         }
 
     }
@@ -189,7 +214,8 @@ startButton.addEventListener("click", () => {
     game.startGame();
 });
 
+
 let bins = document.getElementById("bin-container");
-bins.addEventListener("keydown", () => {
-    game.playerChoice();
+window.addEventListener("keydown", () => {
+    game.playerChoice(event);
 });
