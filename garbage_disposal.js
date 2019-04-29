@@ -14,6 +14,22 @@ class Game {
         this.pickRandomTrash();
     }
 
+    playerChoice(event) {
+        console.log("in playerChoice");
+        var key = event.key;
+        if (key === "1") {
+            //PAPER
+            this.playerChoice = paper3;
+        } else if (key === "2") {
+            //compost
+            this.playerChoice = compost2;
+        } else if (key === "3") {
+            //plastic
+            this.playerChoice = plastic1;
+        }
+        console.log(event.key);
+    }
+
 /*class StartButton {
     constructor(_opacity, _id) {
         this.opacity = _opacity;
@@ -54,21 +70,6 @@ class Game {
     }
 
 
-    playerChoice(event) {
-        console.log("in playerChoice");
-        var key = event.keyCode;
-        if (key == 37) {
-            //PAPER
-            this.playerChoice = paper3;
-        } else if (key == 38) {
-            //compost
-            this.playerChoice = compost2;
-        } else if (key == 39) {
-            //plastic
-            this.playerChoice = plastic1;
-        }
-        console.log(event.keyCode);
-    }
 
     correctAnswer() {
         if (this.playerChoice = this.displayTrashImage ){
@@ -214,6 +215,7 @@ startButton.addEventListener("click", () => {
     game.startGame();
 });
 
+//window.addEventListener("keydown", game.playerChoice());
 
 let bins = document.getElementById("bin-container");
 window.addEventListener("keydown", () => {
