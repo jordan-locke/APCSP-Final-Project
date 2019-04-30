@@ -169,10 +169,19 @@ class Player {
 
 
 class Trash {
-    constructor(_name, _photo, _type) {
+    constructor(_xpos, _xstep, _ypos, _ystep, _name, _photo, _type, _id) {
+        this.xpos = _xpos;
+        this.xstep = _xstep;
+        this.ypos = _ypos;
+        this.ystep = _ystep;
         this.name = _name;
         this.photo = _photo;
         this.type = _type;
+        this.element = document.getElementById(_id)
+    }
+    render() {
+        this.element.style.left = this.xpos + "px";
+        this.element.style.left = this.ypos + "px";
     }
 }
 
