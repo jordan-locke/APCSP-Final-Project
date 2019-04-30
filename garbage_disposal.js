@@ -152,7 +152,7 @@ class Game {
         console.log("in endgame");
         clearInterval(id);
         document.getElementById("timer-input").textContent = "0";
-        if (this.correctAnswer == true) {
+        if (this.correctAnswer == true || this.correctAnswer == null) {
         document.getElementById("pop-up").style.backgroundColor = "crimson";
         document.getElementById("pop-up").style.visibility = "visible";
         document.getElementById("pop-up").textContent = "Time's Up! Game over.";
