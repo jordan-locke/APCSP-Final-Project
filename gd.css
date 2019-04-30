@@ -116,6 +116,10 @@
  font-size: 40px;
 }
 
+.scoreinput {
+ color: red;
+}
+
 .cont2 {
  display: flex;
  flex-direction: column;
