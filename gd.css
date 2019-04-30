@@ -22,7 +22,6 @@
 }
 
 #current-trash {
-    border: solid;
     width: 100px;
     height: 100px;
     display: flex;
@@ -30,7 +29,10 @@
 }
 
 #bin-container {
-    border: solid;
+}
+
+#timer-header {
+    border: none;
 }
 
 #scoreboard {
@@ -39,7 +41,7 @@
     height:100px;
     /*border-radius: 10%;*/
     border-color: black;
-    border-style: double;*/
+    border-style: double;
 }
 
 #timer {
@@ -93,6 +95,21 @@
     flex-direction: column;
     justify-content: space-between;
     flex-direction: column;
+    z-index: 1;
+}
+
+#pop-up {
+    visibility: hidden;
+    position: absolute;
+    z-index: 2;
+    background-color: crimson;
+    height: 400;
+    width: 400;
+    padding: 12px;
+}
+
+#input {
+ background-color: white;
 }
 
 .score {

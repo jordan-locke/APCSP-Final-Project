@@ -2,43 +2,28 @@ class Game {
     constructor() {
         this.player = new Player();
         this.score = 0;
-        this.logTimer = 10;
+        this.timer = 10;
+        this.correctAnswer = null;
         this.currentTrash = null;
         this.playerChoice = null;
-        this.addPopUp = null;
     }
 
     startGame() {
         console.log("in startGame");
-        if (startButton.style.opacity == "0") {
+        if (startButton.style.visibility == "hidden") {
             console.log(this.currentTrash);
         } else {
-            startButton.style.opacity = "0";
+            startButton.style.visibility = "hidden";
             this.pickRandomTrash();
         }
     }
 
-    playerChoice(event) {
-        console.log("in playerChoice");
-        var key = event.key;
-        if (key === "1") {
-            //PAPER
-            this.playerChoice = paper3;
-        } else if (key === "2") {
-            //compost
-            this.playerChoice = compost2;
-        } else if (key === "3") {
-            //plastic
-            this.playerChoice = plastic1;
-        }
-        console.log(event.key);
-    }
-
     pickRandomTrash() {
+        this.currentTrash = null;
         let randomNumber = Math.ceil(Math.random()*3);
-        if (randomNumber == 1) {
-            let randomPlastic = Math.floor(Math.random()*plastic1.length);
-            this.currentTrash = plastic1[randomPlastic];
+        if (randomNumber == 3) {
+            let randomPlastic = Math.floor(Math.random()*plastic3.length);
+            this.currentTrash = plastic3[randomPlastic];
             console.log("in plastic");
             console.log(this.currentTrash);
         } else if (randomNumber == 2) {
@@ -46,9 +31,9 @@ class Game {
             this.currentTrash = compost2[randomCompost];
             console.log("in compost");
             console.log(this.currentTrash);
-        } else if (randomNumber = 3) {
-            let randomPaper = Math.floor(Math.random()*paper3.length);
-            this.currentTrash = paper3[randomPaper];
+        } else if (randomNumber = 1) {
+            let randomPaper = Math.floor(Math.random()*paper1.length);
+            this.currentTrash = paper1[randomPaper];
             console.log("in paper");
             console.log(this.currentTrash);
         }
@@ -56,67 +41,81 @@ class Game {
         this.displayTrashImage();
     }
 
-    displayTrashImage() {
+     displayTrashImage() {
         console.log("in displayImage");
         let trashImage = document.getElementById("current-trash");
+         trashImage.src = null;
         console.log(trashImage.src);
         trashImage.src = this.currentTrash.photo;
         console.log(trashImage.src);
     }
 
-
-
-    correctAnswer() {
-        if (this.playerChoice = this.displayTrashImage ){
-        return true;
-    }else{
-        return false;
+    makeChoice(event) {
+        console.log("in makeChoice");
+        var key = event.key;
+        if (key === "1") {
+            //PAPER
+            this.playerChoice = "1";
+        } else if (key === "2") {
+            //COMPOST
+            this.playerChoice = "2";
+        } else if (key === "3") {
+            //PLASTIC
+            this.playerChoice = "3";
+        }
+        console.log(event.key);
+        this.checkAnswer();
     }
-}
 
-/*class StartButton {
-    constructor(_opacity, _id) {
-        this.opacity = _opacity;
-        this.element = document.createElement(_id);
+    checkAnswer() {
+        if (this.playerChoice == this.currentTrash.type){
+        this.correctAnswer = true;
+        } else {
+        this.correctAnswer = false;
+        }console.log("player choice" + this.playerChoice);
+        console.log("current trash" + this.currentTrash.type);
+        console.log(this.correctAnswer);
+        this.addToScore();
     }
- }*/
-
-
-
-//document.getElementById("current-trash")
-
 
     addToScore() {
-        if (correctAnswer == true) {
+        let scoreInput = document.getElementById("score-input");
+        if (this.correctAnswer == true) {
+            console.log("inside addtoscore true");
             this.score = this.score + 1;
-            this.pickRandomTrash;
-            game.logTimer();
+            this.pickRandomTrash();
+            this.logTimer();
         } else {
             this.addPopUp();
-        }
-
+        } console.log("score" + this.score);
+        scoreInput.textContent = this.score;
     }
 
     addPopUp() {
         let popUp = document.getElementById("pop-up");
         if (this.currentTrash.type = 1) {
-            popUp.textContent = "Uh oh! This product belongs in the PLASTIC bin.";
+            popUp.style.visibility = "visible";
+            popUp.textContent = "Uh oh! This product belongs in the PAPER bin.";
         } else if (this.currentTrash.type = 2) {
+            popUp.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the COMPOST bin.";
         } else if (this.currentTrash.type = 3) {
-            popUp.textContent = "Uh oh! This product belongs in the PAPER bin.";
+            popUp.style.visibility = "visible";
+            popUp.textContent = "Uh oh! This product belongs in the PLASTIC bin.";
         }
     }
 
     logTimer() {
+        let timerInput = document.getElementById("timer-input");
         if (this.score >= 99) {
             this.timer = 1;
         } else if (this.score % 10 == 0){
             this.timer = this.timer - 1;
         } else {
             //timer resets (this.timer = this.timer)?
-        }
+        } timerInput.textContent = this.timer;
     }
+
 }
 
 
@@ -136,23 +135,24 @@ class Player {
 
 
 class Trash {
-    constructor(_photo, _type) {
+    constructor(_name, _photo, _type) {
+        this.name = _name;
         this.photo = _photo;
         this.type = _type;
     }
 }
 
 
-var waterBottle = new Trash("https://4.imimg.com/data4/EU/YB/MY-6282801/normal-plastic-bottle-500x500.jpg", 1);
-var cup = new Trash("https://sc02.alicdn.com/kf/UT8D0v_XthaXXagOFbX6/Wholelsale-Disposable-PET-Plastic-Cup-with-lids.jpg", 1);
-var packaging = new Trash("https://i5.walmartimages.com/asr/ad65e07f-a701-41f3-8a20-357ed5507e84_1.827c65affb84303b7d2c64a5732a4681.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF", 1);
-var yogurtCup = new Trash("https://oembargain.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/5/15s-b_1.jpg", 1);
-var waterJug = new Trash("https://images-na.ssl-images-amazon.com/images/I/41geyS%2B3FwL.jpg", 1);
-var juiceJug = new Trash("http://ecx.images-amazon.com/images/I/310tRm6gYsL.jpg", 1);
-var container = new Trash("http://www.castawayfoodpackaging.com.au/wp-content/uploads/CA-CM650_WEB_A.png", 1);
-var plasticTube = new Trash("https://cdn.shopify.com/s/files/1/2612/8356/products/plastic-tubes-for-vape-cartridges-12mm-x-85mm-packaging-container-white-4011282104402.jpg?v=1547475054", 1);
+var waterBottle = new Trash("water bottle", "https://4.imimg.com/data4/EU/YB/MY-6282801/normal-plastic-bottle-500x500.jpg", 3);
+var cup = new Trash("cup", "https://sc02.alicdn.com/kf/UT8D0v_XthaXXagOFbX6/Wholelsale-Disposable-PET-Plastic-Cup-with-lids.jpg", 3);
+var packaging = new Trash("packaging", "https://i5.walmartimages.com/asr/ad65e07f-a701-41f3-8a20-357ed5507e84_1.827c65affb84303b7d2c64a5732a4681.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF", 3);
+var yogurtCup = new Trash("yogurt cup", "https://oembargain.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/5/15s-b_1.jpg", 3);
+var waterJug = new Trash("water jug", "https://images-na.ssl-images-amazon.com/images/I/41geyS%2B3FwL.jpg", 3);
+var juiceJug = new Trash("juice jug", "http://ecx.images-amazon.com/images/I/310tRm6gYsL.jpg", 3);
+var container = new Trash("container", "http://www.castawayfoodpackaging.com.au/wp-content/uploads/CA-CM650_WEB_A.png", 3);
+var plasticTube = new Trash("plastic tube", "https://cdn.shopify.com/s/files/1/2612/8356/products/plastic-tubes-for-vape-cartridges-12mm-x-85mm-packaging-container-white-4011282104402.jpg?v=1547475054", 3);
 
-let plastic1 = [
+let plastic3 = [
     waterBottle,
     cup,
     packaging,
@@ -163,16 +163,16 @@ let plastic1 = [
     plasticTube
 ]
 
-var bananaPeel = new Trash("https://www.thedailymeal.com/sites/default/files/story/2016/bananapeel.JPG", 2);
-var coffeeFilter = new Trash("https://www.sciencedaily.com/images/2015/05/150513112035_1_900x600.jpg", 2);
-var teaBag = new Trash("https://banner2.kisspng.com/20180301/ywe/kisspng-white-tea-tea-bag-white-bag-tea-bag-5a98d82168ad44.8435095215199662414288.jpg", 2);
-var appleCore = new Trash("https://progressive.org/downloads/5300/download/rotten%20apple%20.jpg.jpe?cb=c4a7db57c9e999ed5e304327da730ae3", 2);
-var avocadoRind = new Trash("https://daily.jstor.org/wp-content/uploads/2017/05/avocado_1050x700.jpg", 2);
-var orangePeel = new Trash("http://assets.stickpng.com/thumbs/5a68f916988f2a795ef76ce3.png", 2);
-var leaf = new Trash("https://www.ctfresh.com.sg/wp-content/uploads/2017/11/177130309.jpg", 2);
-var stick = new Trash("http://www.stickpng.com/assets/images/580b585b2edbce24c47b26c7.png", 2);
-var dirt = new Trash("https://static.canadiancattlemen.ca/wp-content/uploads/2015/02/153935374.jpg", 2);
-var eggShells = new Trash("http://www.stickpng.com/assets/thumbs/5c570e158c21c9029a0f48c1.png", 2);
+var bananaPeel = new Trash("banana peel", "https://www.thedailymeal.com/sites/default/files/story/2016/bananapeel.JPG", 2);
+var coffeeFilter = new Trash("coffee filter", "https://www.sciencedaily.com/images/2015/05/150513112035_1_900x600.jpg", 2);
+var teaBag = new Trash("tea bag", "https://banner2.kisspng.com/20180301/ywe/kisspng-white-tea-tea-bag-white-bag-tea-bag-5a98d82168ad44.8435095215199662414288.jpg", 2);
+var appleCore = new Trash("apple core", "https://progressive.org/downloads/5300/download/rotten%20apple%20.jpg.jpe?cb=c4a7db57c9e999ed5e304327da730ae3", 2);
+var avocadoRind = new Trash("avocado rind", "https://daily.jstor.org/wp-content/uploads/2017/05/avocado_1050x700.jpg", 2);
+var orangePeel = new Trash("orange peel", "http://assets.stickpng.com/thumbs/5a68f916988f2a795ef76ce3.png", 2);
+var leaf = new Trash("leaf", "https://www.ctfresh.com.sg/wp-content/uploads/2017/11/177130309.jpg", 2);
+var stick = new Trash("stick", "http://www.stickpng.com/assets/images/580b585b2edbce24c47b26c7.png", 2);
+var dirt = new Trash("dirt", "https://static.canadiancattlemen.ca/wp-content/uploads/2015/02/153935374.jpg", 2);
+var eggShells = new Trash("egg shells", "http://www.stickpng.com/assets/thumbs/5c570e158c21c9029a0f48c1.png", 2);
 
 let compost2 = [
     bananaPeel,
@@ -187,17 +187,17 @@ let compost2 = [
     eggShells,
 ]
 
-var bigBox = new Trash("https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/VISSC280_shipping_carton_280_x_255_x_215mm_15_pack.jpg", 3);
-var smallBox = new Trash("https://ae01.alicdn.com/kf/HTB1PtLMIpXXXXb8XpXXq6xXFXXXA/Carton-Box-Paper-Boxes-Neoprene-Swimwear-Bikini-Clothing-Packing-Boxes-Anti-Wrinkle-Hard-Brown-color.jpg_640x640.jpg", 3);
-var crumpledPaper = new Trash("http://www.stickpng.com/assets/images/5c434c10e39d5d01c21da943.png", 3);
-var flatPaper = new Trash("https://cdn1.bigcommerce.com/server4300/c7561/products/73/images/1735/paper_sheet__41145.1424302341.380.380.jpg?c=2", 3);
-var tissue = new Trash("https://img1.exportersindia.com/product_images/bc-full/dir_5/126172/tissue-paper-1521700403-76103.jpeg", 3);
-var cardboardTube = new Trash("https://housewifehowtos.com/wp-content/uploads/2012/05/toilet-paper-cardboard-tube.jpg", 3);
-var envelope = new Trash("https://s3.amazonaws.com/static.lcipaper.com/img/prod/AGD7E-OUTmed.png", 3);
-var card = new Trash("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/LeibnizBrief1.jpg/200px-LeibnizBrief1.jpg", 3);
-var paperAirplane = new Trash("http://activehistory.ca/wp-content/uploads/2018/05/1024px-Paperairplane-1024x573.png", 3);
+var bigBox = new Trash("big box", "https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/VISSC280_shipping_carton_280_x_255_x_215mm_15_pack.jpg", 1);
+var smallBox = new Trash("small box", "https://ae01.alicdn.com/kf/HTB1PtLMIpXXXXb8XpXXq6xXFXXXA/Carton-Box-Paper-Boxes-Neoprene-Swimwear-Bikini-Clothing-Packing-Boxes-Anti-Wrinkle-Hard-Brown-color.jpg_640x640.jpg", 1);
+var crumpledPaper = new Trash("crumpled paper", "http://www.stickpng.com/assets/images/5c434c10e39d5d01c21da943.png", 1);
+var flatPaper = new Trash("flat paper", "https://cdn1.bigcommerce.com/server4300/c7561/products/73/images/1735/paper_sheet__41145.1424302341.380.380.jpg?c=2", 1);
+var tissue = new Trash("tissue", "https://img1.exportersindia.com/product_images/bc-full/dir_5/126172/tissue-paper-1521700403-76103.jpeg", 1);
+var cardboardTube = new Trash("cardboard tube", "https://housewifehowtos.com/wp-content/uploads/2012/05/toilet-paper-cardboard-tube.jpg", 1);
+var envelope = new Trash("envelope", "https://s3.amazonaws.com/static.lcipaper.com/img/prod/AGD7E-OUTmed.png", 1);
+var card = new Trash("card", "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/LeibnizBrief1.jpg/200px-LeibnizBrief1.jpg", 1);
+var paperAirplane = new Trash("paper airplane", "http://activehistory.ca/wp-content/uploads/2018/05/1024px-Paperairplane-1024x573.png", 1);
 
-let paper3 = [
+let paper1 = [
     bigBox,
     smallBox,
     crumpledPaper,
@@ -220,7 +220,7 @@ startButton.addEventListener("click", () => {
 });
 
 window.addEventListener("keydown", (e) => {
-    console.log("in playerChoice");
+    game.makeChoice(event);
 });
 
 let bins = document.getElementById("bin-container");
