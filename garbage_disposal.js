@@ -168,6 +168,32 @@ class Game {
         }
     }
 
+    move() {
+        var element = document.getElementById("current-trash");
+        var xpos = this.currentTrash.xpos;
+        var ypos = this.currentTrash.ypos;
+        var id = setInterval(frame, 1);
+        if (this.currentTrash.xpos < /*this.currentBin.xpos*/) {
+            this.currentTrash.xstep;
+            }
+        if (this.currentTrash.ypos < /*this.currentBin.ypos*/) {
+            this.currentTrash.ystep;
+            }
+        this.currentTrash.xpos = this.currentTrash.xpos + this.currentTrash.xstep;
+        this.currentTrash.ypos = this.currentTrash.ypos + this.currentTrash.ystep;
+        this.currentTrash.render();
+    }
+
+    answerAnimation() {
+        if (this.correctAnswer == true) {
+          if (this.currentTrash.xpos === this.) {
+
+              clearInterval(id);
+
+         }
+        }
+    }
+
 }
 
 
@@ -202,7 +228,6 @@ class Trash {
         this.element.style.left = this.ypos + "px";
     }
 }
-
 
 var waterBottle = new Trash(0, 0, 0, 0, "water bottle", "https://4.imimg.com/data4/EU/YB/MY-6282801/normal-plastic-bottle-500x500.jpg", 3, "water-bottle");
 var cup = new Trash(0, 0, 0, 0, "cup", "https://sc02.alicdn.com/kf/UT8D0v_XthaXXagOFbX6/Wholelsale-Disposable-PET-Plastic-Cup-with-lids.jpg", 3, "cup");
@@ -275,7 +300,6 @@ let paper1 = [
 let game = new Game();
 
 let startButton = document.getElementById("start-button");
-//let restartButton = document.getElementById("restart-game");
 
 startButton.addEventListener("click", () => {
     game.startGame();
@@ -286,8 +310,3 @@ window.addEventListener("keydown", (e) => {
         game.makeChoice(event);
     }
 });
-
-/*restartButton.addEventListener("click", () => {
-    game = new Game();
-    game.startGame();
-});*/
