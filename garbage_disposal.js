@@ -7,6 +7,7 @@ class Game {
         this.correctAnswer = null;
         this.currentTrash = null;
         this.playerChoice = null;
+        this.endOfGame = false;
     }
 
     startGame() {
@@ -15,6 +16,9 @@ class Game {
             console.log(this.currentTrash);
         } else {
             startButton.style.visibility = "hidden";
+            document.getElementById("score-input").textContent = "0";
+            document.getElementById("timer-input").textContent = "10";
+            document.getElementById("pop-up").style.visibility = "hidden";
             this.pickRandomTrash();
             this.runTimer();
         }
@@ -100,19 +104,19 @@ class Game {
         console.log("addPopUp current trash type" + " " + this.currentTrash.type);
         if (this.currentTrash.type == "1") {
             popUp.style.visibility = "visible";
-            restartButton.style.visibility = "visible";
+            startButton.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the PAPER bin.";
             popUp.style.backgroundColor = "burlywood";
             this.timer = 0;
         } else if (this.currentTrash.type == "2") {
             popUp.style.visibility = "visible";
-            restartButton.style.visibility = "visible";
+            startButton.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the COMPOST bin.";
             popUp.style.backgroundColor = "darkseagreen";
             this.timer = 0;
         } else if (this.currentTrash.type == "3") {
             popUp.style.visibility = "visible";
-            restartButton.style.visibility = "visible";
+            startButton.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the PLASTIC bin.";
             popUp.style.backgroundColor = "dodgerblue";
             this.timer = 0;
@@ -139,7 +143,7 @@ class Game {
         if (this.score >= 99) {
             console.log("this.score >= 99");
             this.timerMax = 1;
-        } else if (this.score % 10 == 0){
+        } else if (this.score % 10 == 0 && this.score != 0){
             console.log("this.score % 10");
             this.timerMax = this.timerMax - 1;
         } else if (this.correctAnswer == true) {
@@ -152,6 +156,8 @@ class Game {
         console.log("in endgame");
         clearInterval(id);
         document.getElementById("timer-input").textContent = "0";
+        this.endOfGame = true;
+        startButton.style.visibility = "visible";
         if (this.correctAnswer == true || this.correctAnswer == null) {
         document.getElementById("pop-up").style.backgroundColor = "crimson";
         document.getElementById("pop-up").style.visibility = "visible";
@@ -269,7 +275,7 @@ let compost2 = [
 
 var bigBox = new Trash("big box", "https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/VISSC280_shipping_carton_280_x_255_x_215mm_15_pack.jpg", 1);
 var smallBox = new Trash("small box", "https://ae01.alicdn.com/kf/HTB1PtLMIpXXXXb8XpXXq6xXFXXXA/Carton-Box-Paper-Boxes-Neoprene-Swimwear-Bikini-Clothing-Packing-Boxes-Anti-Wrinkle-Hard-Brown-color.jpg_640x640.jpg", 1);
-var crumpledPaper = new Trash("crumpled paper", "https://media.gettyimages.com/photos/crumpled-paper-ball-picture-id182906514?b=1&k=6&m=182906514&s=612x612&w=0&h=AWrFkSlsZWxmmr_vxmi94ABPCNIHgXAiHvnfejYCei8=", 1);
+//var crumpledPaper = new Trash("crumpled paper", "https://media.gettyimages.com/photos/crumpled-paper-ball-picture-id182906514?b=1&k=6&m=182906514&s=612x612&w=0&h=AWrFkSlsZWxmmr_vxmi94ABPCNIHgXAiHvnfejYCei8=", 1);
 var flatPaper = new Trash("flat paper", "https://cdn1.bigcommerce.com/server4300/c7561/products/73/images/1735/paper_sheet__41145.1424302341.380.380.jpg?c=2", 1);
 var tissue = new Trash("tissue", "https://img1.exportersindia.com/product_images/bc-full/dir_5/126172/tissue-paper-1521700403-76103.jpeg", 1);
 var cardboardTube = new Trash("cardboard tube", "https://housewifehowtos.com/wp-content/uploads/2012/05/toilet-paper-cardboard-tube.jpg", 1);
@@ -280,7 +286,7 @@ var paperAirplane = new Trash("paper airplane", "http://activehistory.ca/wp-cont
 let paper1 = [
     bigBox,
     smallBox,
-    crumpledPaper,
+    //crumpledPaper,
     flatPaper,
     tissue,
     cardboardTube,
@@ -294,17 +300,19 @@ let paper1 = [
 let game = new Game();
 
 let startButton = document.getElementById("start-button");
-let restartButton = document.getElementById("restart-game");
+//let restartButton = document.getElementById("restart-game");
 
 startButton.addEventListener("click", () => {
     game.startGame();
 });
 
 window.addEventListener("keydown", (e) => {
-    game.makeChoice(event);
+    if(game.endOfGame == false){
+        game.makeChoice(event);
+    }
 });
 
-restartButton.addEventListener("click", () => {
+/*restartButton.addEventListener("click", () => {
     game = new Game();
     game.startGame();
-});
+});*/
