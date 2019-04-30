@@ -44,7 +44,8 @@ class Game {
      displayTrashImage() {
         console.log("in displayImage");
         let trashImage = document.getElementById("current-trash");
-         trashImage.src = null;
+        trashImage.src = null;
+        trashImage.style.visibility = "visible";
         console.log(trashImage.src);
         trashImage.src = this.currentTrash.photo;
         console.log(trashImage.src);
@@ -175,7 +176,7 @@ let plastic3 = [
 
 var bananaPeel = new Trash("banana peel", "https://www.thedailymeal.com/sites/default/files/story/2016/bananapeel.JPG", 2);
 var coffeeFilter = new Trash("coffee filter", "https://www.sciencedaily.com/images/2015/05/150513112035_1_900x600.jpg", 2);
-var teaBag = new Trash("tea bag", "https://banner2.kisspng.com/20180301/ywe/kisspng-white-tea-tea-bag-white-bag-tea-bag-5a98d82168ad44.8435095215199662414288.jpg", 2);
+var teaBag = new Trash("tea bag", "https://cdn.shopify.com/s/files/1/0654/3125/products/TB_b6af5482-c6ec-47b1-ab2f-adc20f69d12a_grande.jpg?v=1426877660", 2);
 var appleCore = new Trash("apple core", "https://progressive.org/downloads/5300/download/rotten%20apple%20.jpg.jpe?cb=c4a7db57c9e999ed5e304327da730ae3", 2);
 var avocadoRind = new Trash("avocado rind", "https://daily.jstor.org/wp-content/uploads/2017/05/avocado_1050x700.jpg", 2);
 var orangePeel = new Trash("orange peel", "http://assets.stickpng.com/thumbs/5a68f916988f2a795ef76ce3.png", 2);
@@ -232,5 +233,7 @@ startButton.addEventListener("click", () => {
 window.addEventListener("keydown", (e) => {
     game.makeChoice(event);
 });
+
+game.runTimer();
 
 let bins = document.getElementById("bin-container");
