@@ -115,6 +115,10 @@ class Game {
         var countdown = setInterval(function() {
             that.timer--;
             document.getElementById("timer-input").textContent = that.timer;
+            if(that.timer <= 0) {
+                console.log("inside run timer statement");
+                that.endGame;
+            }
             }, 1000);
 
             that.logTimer();
@@ -132,7 +136,14 @@ class Game {
         } else if (this.correctAnswer == true) {
             this.timer = this.timerMax;
             console.log("correctAnswer", this.timer);
-        } console.log("end of logTimer", this.timer);//document.getElementById("timer-input").textContent = this.timerMax;
+        } console.log("end of logTimer", this.timer);
+    }
+
+    endGame() {
+        console.log("in endgame");
+        let endGamePopUp = document.getElementById("end-game");
+        endGamePopUp.style.visibility = "visible";
+        endGamePopUp.textContent = "Time's Up! Game over.";
     }
 
 }
