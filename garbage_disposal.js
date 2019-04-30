@@ -159,6 +159,32 @@ class Game {
         }
     }
 
+    move() {
+        var element = document.getElementById("current-trash");
+        var xpos = this.currentTrash.xpos;
+        var ypos = this.currentTrash.ypos;
+        var id = setInterval(frame, 1);
+        if (this.currentTrash.xpos < /*this.currentBin.xpos*/) {
+            this.currentTrash.xstep;
+            }
+        if (this.currentTrash.ypos < /*this.currentBin.ypos*/) {
+            this.currentTrash.ystep;
+            }
+        this.currentTrash.xpos = this.currentTrash.xpos + this.currentTrash.xstep;
+        this.currentTrash.ypos = this.currentTrash.ypos + this.currentTrash.ystep;
+        this.currentTrash.render();
+    }
+
+    answerAnimation() {
+        if (this.correctAnswer == true) {
+          if (this.currentTrash.xpos === this.) {
+
+              clearInterval(id);
+
+         }
+        }
+    }
+
 }
 
 
@@ -193,6 +219,8 @@ class Trash {
         this.element.style.left = this.ypos + "px";
     }
 }
+
+
 
 
 var waterBottle = new Trash("water bottle", "https://4.imimg.com/data4/EU/YB/MY-6282801/normal-plastic-bottle-500x500.jpg", 3);
