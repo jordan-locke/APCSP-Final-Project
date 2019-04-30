@@ -3,6 +3,7 @@ class Game {
         this.player = new Player();
         this.score = 0;
         this.timer = 10;
+        this.timerMax = 10;
         this.correctAnswer = null;
         this.currentTrash = null;
         this.playerChoice = null;
@@ -15,6 +16,7 @@ class Game {
         } else {
             startButton.style.visibility = "hidden";
             this.pickRandomTrash();
+            this.runTimer();
         }
     }
 
@@ -109,22 +111,28 @@ class Game {
     }
 
     runTimer() {
-        let timerInput = document.getElementById("timer-input").textContent;
+        let that = this;
         var countdown = setInterval(function() {
-            timerInput--;
-            document.getElementById("timer-input").textContent = timerInput;
-            if (timerInput <= 0) clearInterval(countdown);
+            that.timer--;
+            document.getElementById("timer-input").textContent = that.timer;
             }, 1000);
+
+            that.logTimer();
+        console.log(this.timer);
     }
 
     logTimer() {
+        console.log("in logTimer");
         if (this.score >= 99) {
-            this.timer = 1;
+            console.log("this.score >= 99");
+            this.timerMax = 1;
         } else if (this.score % 10 == 0){
-            this.timer = this.timer - 1;
-        } else {
-            //timer resets (this.timer = this.timer)?
-        } timerInput.textContent = this.timer;
+            console.log("this.score % 10");
+            this.timerMax = this.timerMax - 1;
+        } else if (this.correctAnswer == true) {
+            this.timer = this.timerMax;
+            console.log("correctAnswer", this.timer);
+        } console.log("end of logTimer", this.timer);//document.getElementById("timer-input").textContent = this.timerMax;
     }
 
 }
@@ -233,7 +241,5 @@ startButton.addEventListener("click", () => {
 window.addEventListener("keydown", (e) => {
     game.makeChoice(event);
 });
-
-game.runTimer();
 
 let bins = document.getElementById("bin-container");
