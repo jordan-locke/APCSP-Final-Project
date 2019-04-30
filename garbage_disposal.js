@@ -102,14 +102,20 @@ class Game {
             popUp.style.visibility = "visible";
             restartButton.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the PAPER bin.";
+            popUp.style.backgroundColor = "burlywood";
+            this.timer = 0;
         } else if (this.currentTrash.type == "2") {
             popUp.style.visibility = "visible";
             restartButton.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the COMPOST bin.";
+            popUp.style.backgroundColor = "darkseagreen";
+            this.timer = 0;
         } else if (this.currentTrash.type == "3") {
             popUp.style.visibility = "visible";
             restartButton.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the PLASTIC bin.";
+            popUp.style.backgroundColor = "dodgerblue";
+            this.timer = 0;
         }
     }
 
@@ -142,12 +148,15 @@ class Game {
         } console.log("end of logTimer", this.timer);
     }
 
-    endGame(countdown) {
+    endGame(id) {
         console.log("in endgame");
-        clearInterval(countdown);
-        let endGamePopUp = document.getElementById("end-game");
-        endGamePopUp.style.visibility = "visible";
-        endGamePopUp.textContent = "Time's Up! Game over.";
+        clearInterval(id);
+        document.getElementById("timer-input").textContent = "0";
+        if (this.correctAnswer == true) {
+        document.getElementById("pop-up").style.backgroundColor = "crimson";
+        document.getElementById("pop-up").style.visibility = "visible";
+        document.getElementById("pop-up").textContent = "Time's Up! Game over.";
+        }
     }
 
 }
