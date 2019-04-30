@@ -93,20 +93,30 @@ class Game {
 
     addPopUp() {
         let popUp = document.getElementById("pop-up");
-        if (this.currentTrash.type = 1) {
+        popUp.textContent = null;
+        console.log("addPopUp current trash type" + " " + this.currentTrash.type);
+        if (this.currentTrash.type == "1") {
             popUp.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the PAPER bin.";
-        } else if (this.currentTrash.type = 2) {
+        } else if (this.currentTrash.type == "2") {
             popUp.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the COMPOST bin.";
-        } else if (this.currentTrash.type = 3) {
+        } else if (this.currentTrash.type == "3") {
             popUp.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the PLASTIC bin.";
         }
     }
 
+    runTimer() {
+        let timerInput = document.getElementById("timer-input").textContent;
+        var countdown = setInterval(function() {
+            timerInput--;
+            document.getElementById("timer-input").textContent = timerInput;
+            if (timerInput <= 0) clearInterval(countdown);
+            }, 1000);
+    }
+
     logTimer() {
-        let timerInput = document.getElementById("timer-input");
         if (this.score >= 99) {
             this.timer = 1;
         } else if (this.score % 10 == 0){
@@ -189,7 +199,7 @@ let compost2 = [
 
 var bigBox = new Trash("big box", "https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/VISSC280_shipping_carton_280_x_255_x_215mm_15_pack.jpg", 1);
 var smallBox = new Trash("small box", "https://ae01.alicdn.com/kf/HTB1PtLMIpXXXXb8XpXXq6xXFXXXA/Carton-Box-Paper-Boxes-Neoprene-Swimwear-Bikini-Clothing-Packing-Boxes-Anti-Wrinkle-Hard-Brown-color.jpg_640x640.jpg", 1);
-var crumpledPaper = new Trash("crumpled paper", "http://www.stickpng.com/assets/images/5c434c10e39d5d01c21da943.png", 1);
+var crumpledPaper = new Trash("crumpled paper", "https://media.gettyimages.com/photos/crumpled-paper-ball-picture-id182906514?b=1&k=6&m=182906514&s=612x612&w=0&h=AWrFkSlsZWxmmr_vxmi94ABPCNIHgXAiHvnfejYCei8=", 1);
 var flatPaper = new Trash("flat paper", "https://cdn1.bigcommerce.com/server4300/c7561/products/73/images/1735/paper_sheet__41145.1424302341.380.380.jpg?c=2", 1);
 var tissue = new Trash("tissue", "https://img1.exportersindia.com/product_images/bc-full/dir_5/126172/tissue-paper-1521700403-76103.jpeg", 1);
 var cardboardTube = new Trash("cardboard tube", "https://housewifehowtos.com/wp-content/uploads/2012/05/toilet-paper-cardboard-tube.jpg", 1);
