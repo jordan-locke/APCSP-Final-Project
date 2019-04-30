@@ -21,6 +21,15 @@
     to {height: 95;}
 }
 
+html {
+    background-color:darkgreen;
+}
+
+#restart-game {
+    visibility: hidden;
+    z-index: 2;
+}
+
 #current-trash {
     width: 100px;
     height: 100px;

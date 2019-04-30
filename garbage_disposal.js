@@ -100,12 +100,15 @@ class Game {
         console.log("addPopUp current trash type" + " " + this.currentTrash.type);
         if (this.currentTrash.type == "1") {
             popUp.style.visibility = "visible";
+            restartButton.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the PAPER bin.";
         } else if (this.currentTrash.type == "2") {
             popUp.style.visibility = "visible";
+            restartButton.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the COMPOST bin.";
         } else if (this.currentTrash.type == "3") {
             popUp.style.visibility = "visible";
+            restartButton.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the PLASTIC bin.";
         }
     }
@@ -117,7 +120,7 @@ class Game {
             document.getElementById("timer-input").textContent = that.timer;
             if(that.timer <= 0) {
                 console.log("inside run timer statement");
-                that.endGame;
+                that.endGame(countdown);
             }
             }, 1000);
 
@@ -139,8 +142,9 @@ class Game {
         } console.log("end of logTimer", this.timer);
     }
 
-    endGame() {
+    endGame(countdown) {
         console.log("in endgame");
+        clearInterval(countdown);
         let endGamePopUp = document.getElementById("end-game");
         endGamePopUp.style.visibility = "visible";
         endGamePopUp.textContent = "Time's Up! Game over.";
@@ -244,6 +248,7 @@ let paper1 = [
 let game = new Game();
 
 let startButton = document.getElementById("start-button");
+let restartButton = document.getElementById("restart-game");
 
 startButton.addEventListener("click", () => {
     game.startGame();
@@ -253,4 +258,7 @@ window.addEventListener("keydown", (e) => {
     game.makeChoice(event);
 });
 
-let bins = document.getElementById("bin-container");
+restartButton.addEventListener("click", () => {
+    game = new Game();
+    game.startGame();
+});
