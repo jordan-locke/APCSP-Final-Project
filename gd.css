@@ -166,3 +166,63 @@ html {
     justify-content: flex-end;
 }
 
+@keyframes paperMove {
+    0% {
+        top: 400px;
+        left: 1000px;
+        opacity: 1;
+    }
+    100% {
+        top: 200px;
+        left: 150px;
+        opacity: 1;
+    }
+}
+
+.paper {
+    position: absolute;
+    animation-name: paperMove;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    opacity: 1;
+}
+
+@keyframes compostMove {
+    0% {
+       top: 400px;
+       opacity: 1;
+    }
+    100% {
+       top: 200px;
+       opacity: 0;
+    }
+}
+
+#animate2 {
+    position: absolute;
+    animation-name: compostMove;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    opacity: 1;
+}
+
+@keyframes plasticMove {
+     0% {
+        top: 400px;
+        right: 1000px;
+        opacity: 1;
+    }
+    100% {
+        top: 200px;
+        right: 150px;
+        opacity: 1;
+    }
+}
+
+#animate3 {
+    position: absolute;
+    animation-name: plasticMove;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    opacity: 1;
+}

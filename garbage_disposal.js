@@ -58,13 +58,17 @@ class Game {
         console.log(trashImage.src);
         trashImage.src = this.currentTrash.photo;
         console.log(trashImage.src);
+        trashImage.classList.remove("paper");
+        void trashImage.offsetWidth;
     }
 
     makeChoice(event) {
         console.log("in makeChoice");
         var key = event.key;
+        let trash = document.getElementById("trash")
         if (key === "1") {
             //PAPER
+            trash.classList.add("paper")
             this.playerChoice = "1";
         } else if (key === "2") {
             //COMPOST
@@ -74,7 +78,8 @@ class Game {
             this.playerChoice = "3";
         }
         console.log(event.key);
-        this.checkAnswer();
+        let that = this;
+        setTimeout(function() {that.checkAnswer();}, 1000);
     }
 
     checkAnswer() {
@@ -194,8 +199,13 @@ class Game {
         }
     } */
 
-}
+  /*   var id = setInterval(compostMove, 5);
 
+   function compostMove() {
+        if()
+    }
+*/
+}
 
 class Player {
     constructor(_name, _highscore, _choice) {
@@ -213,6 +223,7 @@ class Player {
 
 
 class Trash {
+<<<<<<< HEAD
     constructor(/*_xpos, _xstep, _ypos, _ystep,*/ _name, _photo, _type/*, _id*/) {
         //this.xpos = _xpos;
         //this.xstep = _xstep;
@@ -222,6 +233,12 @@ class Trash {
         this.photo = _photo;
         this.type = _type;
         //this.element = document.getElementById(_id)
+=======
+    constructor(_name, _photo, _type) {
+        this.name = _name;
+        this.photo = _photo;
+        this.type = _type;
+>>>>>>> origin/master
     }
     //render() {
       //  this.element.style.left = this.xpos + "px";
