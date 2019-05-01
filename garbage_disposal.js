@@ -29,19 +29,19 @@ class Game {
 
     pickRandomTrash() {
         this.currentTrash = null;
-        let randomNumber = Math.ceil(Math.random()*3);
+        let randomNumber = Math.ceil(Math.random() * 3);
         if (randomNumber == 3) {
-            let randomPlastic = Math.floor(Math.random()*plastic3.length);
+            let randomPlastic = Math.floor(Math.random() * plastic3.length);
             this.currentTrash = plastic3[randomPlastic];
             console.log("in plastic");
             console.log(this.currentTrash);
         } else if (randomNumber == 2) {
-            let randomCompost = Math.floor(Math.random()*compost2.length);
+            let randomCompost = Math.floor(Math.random() * compost2.length);
             this.currentTrash = compost2[randomCompost];
             console.log("in compost");
             console.log(this.currentTrash);
         } else if (randomNumber = 1) {
-            let randomPaper = Math.floor(Math.random()*paper1.length);
+            let randomPaper = Math.floor(Math.random() * paper1.length);
             this.currentTrash = paper1[randomPaper];
             console.log("in paper");
             console.log(this.currentTrash);
@@ -50,7 +50,7 @@ class Game {
         this.displayTrashImage();
     }
 
-     displayTrashImage() {
+    displayTrashImage() {
         console.log("in displayImage");
         let trashImage = document.getElementById("current-trash");
         trashImage.src = null;
@@ -79,15 +79,18 @@ class Game {
         }
         console.log(event.key);
         let that = this;
-        setTimeout(function() {that.checkAnswer();}, 1000);
+        setTimeout(function () {
+            that.checkAnswer();
+        }, 1000);
     }
 
     checkAnswer() {
-        if (this.playerChoice == this.currentTrash.type){
-        this.correctAnswer = true;
+        if (this.playerChoice == this.currentTrash.type) {
+            this.correctAnswer = true;
         } else {
-        this.correctAnswer = false;
-        }console.log("player choice" + this.playerChoice);
+            this.correctAnswer = false;
+        }
+        console.log("player choice" + this.playerChoice);
         console.log("current trash" + this.currentTrash.type);
         console.log(this.correctAnswer);
         this.addToScore();
@@ -102,7 +105,8 @@ class Game {
             this.logTimer();
         } else {
             this.addPopUp();
-        } console.log("score" + this.score);
+        }
+        console.log("score" + this.score);
         scoreInput.textContent = this.score;
     }
 
@@ -116,33 +120,42 @@ class Game {
             popUp.textContent = "Uh oh! This product belongs in the PAPER bin.";
             popUp.style.backgroundColor = "burlywood";
             this.timer = 0;
+            document.getElementById("homepage").style.visibility = "visible";
+            document.getElementById("score-input").textContent = this.score;
+            console.log(this.score);
         } else if (this.currentTrash.type == "2") {
             popUp.style.visibility = "visible";
             startButton.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the COMPOST bin.";
             popUp.style.backgroundColor = "darkseagreen";
             this.timer = 0;
+            document.getElementById("homepage").style.visibility = "visible";
+            document.getElementById("score-input").textContent = this.score;
+            console.log(this.score);
         } else if (this.currentTrash.type == "3") {
             popUp.style.visibility = "visible";
             startButton.style.visibility = "visible";
             popUp.textContent = "Uh oh! This product belongs in the PLASTIC bin.";
             popUp.style.backgroundColor = "dodgerblue";
             this.timer = 0;
+            document.getElementById("homepage").style.visibility = "visible";
+            document.getElementById("score-input").textContent = this.score;
+            console.log(this.score);
         }
     }
 
     runTimer() {
         let that = this;
-        var countdown = setInterval(function() {
+        var countdown = setInterval(function () {
             that.timer--;
             document.getElementById("timer-input").textContent = that.timer;
-            if(that.timer <= 0) {
+            if (that.timer <= 0) {
                 console.log("inside run timer statement");
                 that.endGame(countdown);
             }
-            }, 1000);
+        }, 1000);
 
-            that.logTimer();
+        that.logTimer();
         console.log(this.timer);
     }
 
@@ -151,13 +164,14 @@ class Game {
         if (this.score >= 99) {
             console.log("this.score >= 99");
             this.timerMax = 1;
-        } else if (this.score % 10 == 0 && this.score != 0){
+        } else if (this.score % 10 == 0 && this.score != 0) {
             console.log("this.score % 10");
             this.timerMax = this.timerMax - 1;
         } else if (this.correctAnswer == true) {
             this.timer = this.timerMax;
             console.log("correctAnswer", this.timer);
-        } console.log("end of logTimer", this.timer);
+        }
+        console.log("end of logTimer", this.timer);
     }
 
     endGame(id) {
@@ -166,40 +180,46 @@ class Game {
         document.getElementById("timer-input").textContent = "0";
         this.endOfGame = true;
         startButton.style.visibility = "visible";
+        if (document.getElementById("homepage").style.visibility == "visible") {
+            console.log("homepage visible");
+        } else {
+            console.log("homepage hidden");
+        }
         if (this.correctAnswer == true || this.correctAnswer == null) {
-        document.getElementById("pop-up").style.backgroundColor = "crimson";
-        document.getElementById("pop-up").style.visibility = "visible";
-        document.getElementById("pop-up").textContent = "Time's Up! Game over.";
+            document.getElementById("pop-up").style.backgroundColor = "crimson";
+            document.getElementById("pop-up").style.visibility = "visible";
+            document.getElementById("pop-up").textContent = "Time's Up! Game over.";
         }
+        console.log("end endgame");
     }
 
-   /* move() {
-        var element = document.getElementById("current-trash");
-        var xpos = this.currentTrash.xpos;
-        var ypos = this.currentTrash.ypos;
-        var id = setInterval(frame, 1);
-        if (this.currentTrash.xpos < this.currentBin.xpos) {
-            this.currentTrash.xstep;
-            }
-        if (this.currentTrash.ypos < this.currentBin.ypos) {
-            this.currentTrash.ystep;
-            }
-        this.currentTrash.xpos = this.currentTrash.xpos + this.currentTrash.xstep;
-        this.currentTrash.ypos = this.currentTrash.ypos + this.currentTrash.ystep;
-        this.currentTrash.render();
-    }
+    /* move() {
+         var element = document.getElementById("current-trash");
+         var xpos = this.currentTrash.xpos;
+         var ypos = this.currentTrash.ypos;
+         var id = setInterval(frame, 1);
+         if (this.currentTrash.xpos < this.currentBin.xpos) {
+             this.currentTrash.xstep;
+             }
+         if (this.currentTrash.ypos < this.currentBin.ypos) {
+             this.currentTrash.ystep;
+             }
+         this.currentTrash.xpos = this.currentTrash.xpos + this.currentTrash.xstep;
+         this.currentTrash.ypos = this.currentTrash.ypos + this.currentTrash.ystep;
+         this.currentTrash.render();
+     }
 
-    answerAnimation() {
-        if (this.correctAnswer == true) {
-          if (this.currentTrash.xpos === this.) {
+     answerAnimation() {
+         if (this.correctAnswer == true) {
+           if (this.currentTrash.xpos === this.) {
 
-              clearInterval(id);
+               clearInterval(id);
 
+          }
          }
-        }
-    } */
+     } */
 
-  /*   var id = setInterval(compostMove, 5);
+    /*   var id = setInterval(compostMove, 5);
 
    function compostMove() {
         if()
@@ -215,8 +235,8 @@ class Player {
     }
 
     playerName() {
-       // TODO
-   }
+        // TODO
+    }
 }
 
 
@@ -229,9 +249,9 @@ class Trash {
         this.type = _type;
     }
     //render() {
-      //  this.element.style.left = this.xpos + "px";
-        //this.element.style.left = this.ypos + "px";
-   // }
+    //  this.element.style.left = this.xpos + "px";
+    //this.element.style.left = this.ypos + "px";
+    // }
 }
 
 
@@ -329,7 +349,7 @@ startButton.addEventListener("click", () => {
 });
 
 window.addEventListener("keydown", (e) => {
-    if(game.endOfGame == false){
+    if (game.endOfGame == false) {
         game.makeChoice(event);
     }
 });
