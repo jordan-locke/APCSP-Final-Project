@@ -55,13 +55,17 @@ class Game {
         console.log(trashImage.src);
         trashImage.src = this.currentTrash.photo;
         console.log(trashImage.src);
+        trashImage.classList.remove("paper");
+        void trashImage.offsetWidth;
     }
 
     makeChoice(event) {
         console.log("in makeChoice");
         var key = event.key;
+        let trash = document.getElementById("trash")
         if (key === "1") {
             //PAPER
+            trash.classList.add("paper")
             this.playerChoice = "1";
         } else if (key === "2") {
             //COMPOST
@@ -71,7 +75,8 @@ class Game {
             this.playerChoice = "3";
         }
         console.log(event.key);
-        this.checkAnswer();
+        let that = this;
+        setTimeout(function() {that.checkAnswer();}, 1000);
     }
 
     checkAnswer() {
@@ -165,34 +170,13 @@ class Game {
         }
     }
 
-    move() {
-        var element = document.getElementById("current-trash");
-        var xpos = this.currentTrash.xpos;
-        var ypos = this.currentTrash.ypos;
-        var id = setInterval(frame, 1);
-        if (this.currentTrash.xpos < /*this.currentBin.xpos*/) {
-            this.currentTrash.xstep;
-            }
-        if (this.currentTrash.ypos < /*this.currentBin.ypos*/) {
-            this.currentTrash.ystep;
-            }
-        this.currentTrash.xpos = this.currentTrash.xpos + this.currentTrash.xstep;
-        this.currentTrash.ypos = this.currentTrash.ypos + this.currentTrash.ystep;
-        this.currentTrash.render();
+  /*   var id = setInterval(compostMove, 5);
+
+   function compostMove() {
+        if()
     }
-
-    answerAnimation() {
-        if (this.correctAnswer == true) {
-          if (this.currentTrash.xpos === this.) {
-
-              clearInterval(id);
-
-         }
-        }
-    }
-
+*/
 }
-
 
 class Player {
     constructor(_name, _highscore, _choice) {
@@ -210,19 +194,10 @@ class Player {
 
 
 class Trash {
-    constructor(_xpos, _xstep, _ypos, _ystep, _name, _photo, _type, _id) {
-        this.xpos = _xpos;
-        this.xstep = _xstep;
-        this.ypos = _ypos;
-        this.ystep = _ystep;
+    constructor(_name, _photo, _type) {
         this.name = _name;
         this.photo = _photo;
         this.type = _type;
-        this.element = document.getElementById(_id)
-    }
-    render() {
-        this.element.style.left = this.xpos + "px";
-        this.element.style.left = this.ypos + "px";
     }
 }
 
