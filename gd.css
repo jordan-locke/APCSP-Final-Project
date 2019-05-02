@@ -9,6 +9,7 @@ html {
     visibility: visible;
     z-index: 3;
     position: absolute;
+    align-self: center;
 }
 
 #pop-up {
