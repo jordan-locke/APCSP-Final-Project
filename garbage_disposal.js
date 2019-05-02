@@ -108,7 +108,7 @@ class Game {
     }
 
     addToScore() {
-        let scoreInput = document.getElementById("score-input");
+        //let scoreInput = document.getElementById("score-input");
         if (this.correctAnswer == true) {
             console.log("inside addtoscore true");
             this.score = this.score + 1;
@@ -118,7 +118,8 @@ class Game {
             this.addPopUp();
         }
         console.log("score" + this.score);
-        scoreInput.textContent = this.score;
+        document.getElementById("score-input").textContent = this.score;
+        console.log("scoreinput", document.getElementById("score-input").textContent);
     }
 
     addPopUp() {
@@ -132,7 +133,7 @@ class Game {
             popUp.style.backgroundColor = "burlywood";
             this.timer = 0;
             document.getElementById("homepage").style.visibility = "visible";
-            document.getElementById("score-input").textContent = this.score;
+            document.getElementById("score-report").textContent = this.score;
             console.log(this.score);
         } else if (this.currentTrash.type == "2") {
             popUp.style.visibility = "visible";
@@ -141,7 +142,7 @@ class Game {
             popUp.style.backgroundColor = "darkseagreen";
             this.timer = 0;
             document.getElementById("homepage").style.visibility = "visible";
-            document.getElementById("score-input").textContent = this.score;
+            document.getElementById("score-report").textContent = this.score;
             console.log(this.score);
         } else if (this.currentTrash.type == "3") {
             popUp.style.visibility = "visible";
@@ -150,7 +151,7 @@ class Game {
             popUp.style.backgroundColor = "dodgerblue";
             this.timer = 0;
             document.getElementById("homepage").style.visibility = "visible";
-            document.getElementById("score-input").textContent = this.score;
+            document.getElementById("score-report").textContent = this.score;
             console.log(this.score);
         }
     }
@@ -200,42 +201,11 @@ class Game {
             document.getElementById("pop-up").style.backgroundColor = "crimson";
             document.getElementById("pop-up").style.visibility = "visible";
             document.getElementById("pop-up").textContent = "Time's Up! Game over.";
+            document.getElementById("homepage").style.visibility = "visible";
+            document.getElementById("score-input").textContent = this.score;
         }
         console.log("end endgame");
     }
-
-    /* move() {
-         var element = document.getElementById("current-trash");
-         var xpos = this.currentTrash.xpos;
-         var ypos = this.currentTrash.ypos;
-         var id = setInterval(frame, 1);
-         if (this.currentTrash.xpos < this.currentBin.xpos) {
-             this.currentTrash.xstep;
-             }
-         if (this.currentTrash.ypos < this.currentBin.ypos) {
-             this.currentTrash.ystep;
-             }
-         this.currentTrash.xpos = this.currentTrash.xpos + this.currentTrash.xstep;
-         this.currentTrash.ypos = this.currentTrash.ypos + this.currentTrash.ystep;
-         this.currentTrash.render();
-     }
-
-     answerAnimation() {
-         if (this.correctAnswer == true) {
-           if (this.currentTrash.xpos === this.) {
-
-               clearInterval(id);
-
-          }
-         }
-     } */
-
-    /*   var id = setInterval(compostMove, 5);
-
-   function compostMove() {
-        if()
-    }
-*/
 }
 
 class Player {
@@ -265,19 +235,6 @@ class Trash {
     // }
 }
 
-<<<<<<< HEAD
-var waterBottle = new Trash(0, 0, 0, 0, "water bottle", "https://4.imimg.com/data4/EU/YB/MY-6282801/normal-plastic-bottle-500x500.jpg", 3, "water-bottle");
-var cup = new Trash(0, 0, 0, 0, "cup", "https://sc02.alicdn.com/kf/UT8D0v_XthaXXagOFbX6/Wholelsale-Disposable-PET-Plastic-Cup-with-lids.jpg", 3, "cup");
-var packaging = new Trash(0, 0, 0, 0, "packaging", "https://i5.walmartimages.com/asr/ad65e07f-a701-41f3-8a20-357ed5507e84_1.827c65affb84303b7d2c64a5732a4681.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF", 3, "packaging");
-var yogurtCup = new Trash(0, 0, 0, 0, "yogurt cup", "https://oembargain.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/5/15s-b_1.jpg", 3, "yogurt-cup");
-var waterJug = new Trash(0, 0, 0, 0, "water jug", "https://images-na.ssl-images-amazon.com/images/I/41geyS%2B3FwL.jpg", 3, "water-jug");
-var juiceJug = new Trash(0, 0, 0, 0, "juice jug", "http://ecx.images-amazon.com/images/I/310tRm6gYsL.jpg", 3, "juice-jug");
-var container = new Trash(0, 0, 0, 0, "container", "http://www.castawayfoodpackaging.com.au/wp-content/uploads/CA-CM650_WEB_A.png", 3, "food-container");
-var plasticTube = new Trash(0, 0, 0, 0, "plastic tube", "https://cdn.shopify.com/s/files/1/2612/8356/products/plastic-tubes-for-vape-cartridges-12mm-x-85mm-packaging-container-white-4011282104402.jpg?v=1547475054", 3, "plastic-tube");
-=======
-
-
-
 var waterBottle = new Trash("water bottle", "http://pngimg.com/uploads/bottle/bottle_PNG2087.png", 3);
 var cup = new Trash("cup", "https://cdn.shopify.com/s/files/1/1034/4213/products/16oz_PET_450px_600x.png?v=1546480348", 3);
 var yogurtCup = new Trash("yogurt cup", "https://i.ya-webdesign.com//images/transparent-packaging-yogurt.png", 3);
@@ -285,7 +242,6 @@ var waterJug = new Trash("water jug", "http://pngimg.com/uploads/water_bottle/wa
 var juiceJug = new Trash("juice jug", "https://s11284.pcdn.co/wp-content/uploads/2017/03/odwalla-orange-juice-250x250.png", 3);
 var container = new Trash("container", "https://cdn-1.us.xmsymphony.com/4f82a65cc26a0c11e496900b34085e9f/contents/B08PCMRC32B/B08PCMRC32B.png", 3);
 var bleach = new Trash("bleach", "https://www.thecloroxcompany.com/wp-content/uploads/regular-bleach-2-cloroxmax-hero-164x300.png", 3);
->>>>>>> origin/master
 
 let plastic3 = [
     waterBottle,
@@ -297,18 +253,6 @@ let plastic3 = [
     bleach
 ]
 
-<<<<<<< HEAD
-var bananaPeel = new Trash(0, 0, 0, 0, "banana peel", "https://www.thedailymeal.com/sites/default/files/story/2016/bananapeel.JPG", 2, "banana-peel");
-var coffeeFilter = new Trash(0, 0, 0, 0, "coffee filter", "https://www.sciencedaily.com/images/2015/05/150513112035_1_900x600.jpg", 2, "coffee-filter");
-var teaBag = new Trash(0, 0, 0, 0, "tea bag", "https://cdn.shopify.com/s/files/1/0654/3125/products/TB_b6af5482-c6ec-47b1-ab2f-adc20f69d12a_grande.jpg?v=1426877660", 2, "tea-bag");
-var appleCore = new Trash(0, 0, 0, 0, "apple core", "https://progressive.org/downloads/5300/download/rotten%20apple%20.jpg.jpe?cb=c4a7db57c9e999ed5e304327da730ae3", 2, "apple-core");
-var avocadoRind = new Trash(0, 0, 0, 0, "avocado rind", "https://daily.jstor.org/wp-content/uploads/2017/05/avocado_1050x700.jpg", 2, "avocado");
-var orangePeel = new Trash(0, 0, 0, 0, "orange peel", "http://assets.stickpng.com/thumbs/5a68f916988f2a795ef76ce3.png", 2, "orange-peel");
-var leaf = new Trash(0, 0, 0, 0, "leaf", "https://www.ctfresh.com.sg/wp-content/uploads/2017/11/177130309.jpg", 2, "leaf");
-var stick = new Trash(0, 0, 0, 0, "stick", "http://www.stickpng.com/assets/images/580b585b2edbce24c47b26c7.png", 2, "stick");
-var dirt = new Trash(0, 0, 0, 0, "dirt", "https://static.canadiancattlemen.ca/wp-content/uploads/2015/02/153935374.jpg", 2, "dirt");
-var eggShells = new Trash(0, 0, 0, 0, "egg shells", "http://www.stickpng.com/assets/thumbs/5c570e158c21c9029a0f48c1.png", 2, "egg-shells");
-=======
 var coffeeFilter = new Trash("coffee filter", "http://www.talproducts.com/media/catalog/product/cache/1/image/440x/9df78eab33525d08d6e5fb8d27136e95/c/o/coffee_filter_c08-bunncf_28.png", 2);
 var teaBag = new Trash("tea bag", "https://www.pngkey.com/png/full/87-875612_tea-bag-png.png", 2);
 var appleCore = new Trash("apple core", "https://i.dlpng.com/static/png/3881069_thumb.png", 2);
@@ -316,7 +260,6 @@ var avocadoRind = new Trash("avocado rind", "http://pngriver.com/wp-content/uplo
 var orangePeel = new Trash("orange peel", "http://assets.stickpng.com/thumbs/5a68f916988f2a795ef76ce3.png", 2);
 var eggShells = new Trash("egg shells", "http://www.stickpng.com/assets/thumbs/5c570e158c21c9029a0f48c1.png", 2);
 var coffeeGrounds = new Trash("coffee-grounds", "https://i.pinimg.com/originals/c1/94/e9/c194e9096fce9d44b7308c33b3891e5a.png", 2);
-var breadLoaf = new Trash("bread-loaf", "https://pngimg.com/uploads/bread/bread_PNG2281.png", 2);
 var nuts = new Trash("nuts", "https://www.lmcarter.com/wp-content/uploads/2016/02/Industries-Peanuts.png", 2);
 var wineCorks = new Trash("wine-corks", "https://morebeer-web-9-pavinthewaysoftw.netdna-ssl.com/product_image/morebeer/500x500/22768.png", 2);
 var cupcakeWrapper = new Trash("cupcake-wrapper", "https://webshop.vanderwindt.ie/static/uploads/pictures/large/VWIE_14219.png", 2);
@@ -324,7 +267,6 @@ var cottonBalls = new Trash("cotton-balls", "https://www.dufortlavigne.com/syste
 var shreddedPaper = new Trash("shredded-paper", "https://benkallos.com/sites/default/files/shreddedpaper-300x264.png", 2);
 var twine = new Trash("twine", "https://sitejerk.com/images/twine.png", 2);
 var grass = new Trash("grass", "https://happylawncare.com/wp-content/uploads/2014/08/Grass-Clipping-mulch.png", 2);
->>>>>>> origin/master
 
 let compost2 = [
     coffeeFilter,
@@ -334,7 +276,6 @@ let compost2 = [
     orangePeel,
     eggShells,
     coffeeGrounds,
-    breadLoaf,
     nuts,
     wineCorks,
     cupcakeWrapper,
@@ -344,17 +285,7 @@ let compost2 = [
     grass
 ]
 
-<<<<<<< HEAD
-var bigBox = new Trash(0, 0, 0, 0, "big box", "https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_300x300/VISSC280_shipping_carton_280_x_255_x_215mm_15_pack.jpg", 1, "big-box");
-var smallBox = new Trash(0, 0, 0, 0, "small box", "https://ae01.alicdn.com/kf/HTB1PtLMIpXXXXb8XpXXq6xXFXXXA/Carton-Box-Paper-Boxes-Neoprene-Swimwear-Bikini-Clothing-Packing-Boxes-Anti-Wrinkle-Hard-Brown-color.jpg_640x640.jpg", 1, "small-box");
-//var crumpledPaper = new Trash("crumpled paper", "https://media.gettyimages.com/photos/crumpled-paper-ball-picture-id182906514?b=1&k=6&m=182906514&s=612x612&w=0&h=AWrFkSlsZWxmmr_vxmi94ABPCNIHgXAiHvnfejYCei8=", 1);
-var flatPaper = new Trash(0, 0, 0, 0, "flat paper", "https://cdn1.bigcommerce.com/server4300/c7561/products/73/images/1735/paper_sheet__41145.1424302341.380.380.jpg?c=2", 1, "flat-paper");
-var tissue = new Trash(0, 0, 0, 0, "tissue", "https://img1.exportersindia.com/product_images/bc-full/dir_5/126172/tissue-paper-1521700403-76103.jpeg", 1, "tissue");
-var cardboardTube = new Trash(0, 0, 0, 0, "cardboard tube", "https://housewifehowtos.com/wp-content/uploads/2012/05/toilet-paper-cardboard-tube.jpg", 1, "cardboard-tube");
-var envelope = new Trash(0, 0, 0, 0, "envelope", "https://s3.amazonaws.com/static.lcipaper.com/img/prod/AGD7E-OUTmed.png", 1, "envelope");
-var card = new Trash(0, 0, 0, 0, "card", "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/LeibnizBrief1.jpg/200px-LeibnizBrief1.jpg", 1, "card");
-var paperAirplane = new Trash(0, 0, 0, 0, "paper airplane", "http://activehistory.ca/wp-content/uploads/2018/05/1024px-Paperairplane-1024x573.png", 1, "paper-airplane");
-=======
+
 var bigBox = new Trash("big box", "https://i1.wp.com/freepngimages.com/wp-content/uploads/2016/02/cardboard-box-transparent-image.png?fit=708%2C686", 1);
 var smallBox = new Trash("small box", "https://sc01.alicdn.com/kf/HTB10DVLKVXXXXb2XXXX760XFXXXa/Custom-drawer-shape-shoe-box-packaging.png_350x350.png", 1);
 var flatPaper = new Trash("flat paper", "https://www.menushoppe.com/shop/images/th2_blankpaper_main_category2.png", 1);
@@ -367,7 +298,6 @@ var newspaper = new Trash("newspaper", "https://i.pinimg.com/originals/c7/17/27/
 var cerealBox = new Trash("cereal-box", "https://i.ya-webdesign.com//images/cereal-box-png-3.png", 1);
 var milkCarton = new Trash("milk-carton", "http://harmonyorganic.ca/images/products/originals/Cartons/1_Carton/Organic-Whole_Milk-1L-Carton-1.png", 1);
 var manilaFolder = new Trash("manila-folder", "https://www.pngkey.com/png/full/166-1663158_manila-end-tab-folders-manila-folder.png", 1);
->>>>>>> origin/master
 
 let paper1 = [
     bigBox,
