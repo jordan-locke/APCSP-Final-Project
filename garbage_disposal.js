@@ -19,6 +19,7 @@ class Game {
             document.getElementById("homepage").style.visibility = "hidden";
             this.endOfGame = false;
             this.timer = 10;
+            this.score = 0;
             document.getElementById("score-input").textContent = "0";
             document.getElementById("timer-input").textContent = "10";
             document.getElementById("pop-up").style.visibility = "hidden";
@@ -52,14 +53,21 @@ class Game {
 
     displayTrashImage() {
         console.log("in displayImage");
-        let trashImage = document.getElementById("current-trash");
-        trashImage.src = null;
-        trashImage.style.visibility = "visible";
-        console.log(trashImage.src);
-        trashImage.src = this.currentTrash.photo;
-        console.log(trashImage.src);
-        trashImage.classList.remove("paper");
-        void trashImage.offsetWidth;
+        let trash = document.createElement("div");
+        trash.setAttribute("id", "trash");
+        let currentTrash = document.createElement("img");
+        trash.appendChild(currentTrash);
+        let choice = document.getElementById("choice");
+        choice.appendChild(trash);
+
+        //let trashImage = document.getElementById("current-trash");
+        //trashImage.src = null;
+        //trashImage.style.visibility = "visible";
+        //console.log(trashImage.src);
+        currentTrash.src = this.currentTrash.photo;
+        //console.log(trashImage.src);
+        //trashImage.classList.remove("trash");
+        //void trashImage.offsetWidth;
     }
 
     makeChoice(event) {
@@ -68,19 +76,22 @@ class Game {
         let trash = document.getElementById("trash")
         if (key === "1") {
             //PAPER
-            trash.classList.add("paper")
+            trash.classList.add("paper");
             this.playerChoice = "1";
         } else if (key === "2") {
             //COMPOST
+            trash.classList.add("compost");
             this.playerChoice = "2";
         } else if (key === "3") {
             //PLASTIC
+            trash.classList.add("plastic");
             this.playerChoice = "3";
         }
         console.log(event.key);
         let that = this;
         setTimeout(function () {
             that.checkAnswer();
+            trash.parentNode.removeChild(trash);
         }, 1000);
     }
 
