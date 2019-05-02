@@ -1,5 +1,5 @@
 html {
-    background-color: darkgreen;
+    background-color: #a2b79c;
 }
 
 #homepage {
@@ -53,7 +53,7 @@ html {
 }
 
 #timer {
-    background-color: coral;
+    background-color: #e20f36;
     width: 400px;
     height: 100px;
     /*border-radius: 20%;*/
@@ -63,19 +63,19 @@ html {
 }
 
 #paperBin {
-    background-color: burlywood;
+    background-color: #683a0c;
     width: 150px;
     height: 200px;
 }
 
 #plasticBin {
-    background-color: dodgerblue;
+    background-color: #1427d1;
     width: 150px;
     height: 200px;
 }
 
 #compostBin {
-    background-color: darkseagreen;
+    background-color: #207707;
     width: 150px;
     height: 200px;
 }
