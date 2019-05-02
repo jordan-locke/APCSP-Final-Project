@@ -3,55 +3,77 @@
 
 <head>
 
-  <link rel="stylesheet" type="text/css" href="gd.css" title="style">
+    <link rel="stylesheet" type="text/css" href="gd.css" title="style">
 
-  <title>Garbage Disposal</title>
+    <title>Garbage Disposal</title>
 </head>
 
 <body>
-  <div id="game" class="whole">
-    <button id="start-button">START GAME</button>
-
-      <div class="container">
-        <div id="timer" animation-iteration-count: 1000000; animation-duration: 1s;>
-            <div id="timer-header" class="name">TIMER</div>
-            <div class="cont2">
-                <p id="timer-input" class="input">10</p>
+    <div id="game" class="whole">
+        <div id="homepage">
+            <br>
+            <h2>Sort It!</h2>
+            <p>Use keys 1, 2, and 3 to sort your waste items into the Paper bin, the Compost bin, or the Plastic bin.</p>
+            <ul>
+                <li>1 = PAPER</li>
+                <li>2 = COMPOST</li>
+                <li>3 = PLASTIC</li>
+            </ul>
+            <p>There will be a 10 second timer counting down as soon as the game begins. When you correctly sort a waste item, the timer will reset. In the bottom right-hand corner, a scoreboard will keep track of your points. You will receive a point for every item correctly sorted. Every 10 points, the amount of time to sort an item will drop by 1 second.</p>
+            <h3 id="score-title">FINAL SCORE:</h3>
+            <h3 id="score-report"></h3>
+            <h3 id="score-input"></h3>
+        </div>
+        <button id="start-button">START GAME</button>
+        <br><br>
+        <div class="container">
+            <div id="timer" animation-iteration-count: 1000000; animation-duration: 1s;>
+                <div id="timer-header" class="name">TIMER</div>
+                <div class="cont2">
+                    <p id="timer-input" class="input">10</p>
+                </div>
             </div>
         </div>
-      </div>
-<br>
-      <div id="bin-container" class="container">
-        <div id="paperBin">
-            <div class="name">PAPER</div>
+        <br>
+        <div id="bin-container" class="container">
+            <div id="paperBin">
+                <div class="name">PAPER</div>
+                <div class="input">1</div>
+            </div>
+            <div id="compostBin">
+                <div class="name">COMPOST</div>
+                <div class="input">2</div>
+            </div>
+            <div id="plasticBin">
+                <div class="name">PLASTIC</div>
+                <div class="input">3</div>
+            </div>
         </div>
-        <div id="compostBin">
-            <div class="name">COMPOST</div>
-        </div>
-        <div id="plasticBin">
-            <div class="name">PLASTIC</div>
-        </div>
-      </div>
-<br>
-      <div class="score">
-        <div id="scoreboard" class="name">
-            SCORE
-            <p id="score-input" class="input"></p>
-          </div>
+        <br>
+        <div class="score">
+            <div id="scoreboard" class="name">
+                SCORE
+                <p id="score-input" class="input"></p>
+            </div>
 
+        </div>
+
+        <br>
+        <div class="cont2" id="choice">
+        </div>
+    </div>
+
+
+    <!--
+    <div id="animate2">
+        <img src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
       </div>
-<br>
-      <div class="container">
-        <img src="" id="current-trash">
-      </div>
-  </div>
-<br>
+-->
+    <br>
     <div class="pop" id="pop-up"></div>
 
     <div class="pop" id="end-game"></div>
 
 
-  <script type="text/javascript" src="garbage_disposal.js"></script>
-</body>
-
-</html>
+    <script type="text/javascript" src="garbage_disposal.js"></script>
+</body></html>
