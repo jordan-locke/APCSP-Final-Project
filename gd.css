@@ -19,7 +19,9 @@ html {
 }
 
 #end-game {
-    position: absolute;
+    position: relative;
+    top: 500px;
+    left: 500px
     align-self: center;
     z-index: 4;
 }
@@ -30,8 +32,8 @@ html {
 }
 
 #current-trash {
-    width: 250px;
-    height: 250px;
+    width: 100px;
+    height: 100px;
     display: flex;
     align-content: center;
     visibility: hidden;
@@ -59,7 +61,6 @@ html {
     /*border-radius: 20%;*/
     border-color: black;
     border-style: double;
-    */
 }
 
 #paperBin {
